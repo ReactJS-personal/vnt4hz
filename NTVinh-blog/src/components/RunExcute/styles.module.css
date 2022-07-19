@@ -103,6 +103,139 @@
     cursor: pointer;
 }
 
+.collapseCode {
+    background-color: #282A36;
+    width: 130px;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.file:hover {
+    background-color: #3d414f
+}
+
+.file p {
+    font-size: 14px;
+    color: #fff;
+}
+
+.file svg {
+    color: rgb(161, 161, 161);
+}
+
+.collapseFile {
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
+    cursor: pointer;
+}
+
+
+
+.js {
+    color: rgb(218, 218, 7);
+    font-size: 14px;
+
+}
+
+.collapseFile p {
+    font-size: 12px !important;
+    color: #fff;
+}
+
+
+.primsmCode {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.screenVs {
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.screenVs svg {
+    font-size: 200px;
+    color: #323131;
+}
+
+.topFile {
+    border-top: 1px solid #834169;
+    padding: 0px 0px 0px 2px;
+    cursor: pointer;
+    color: #fff;
+    height: 20px;
+}
+
+.paddingR {
+    padding-right: 14px;
+}
+
+.removeClass {
+    padding-right: 0 !important;
+}
+
+.bottom {
+    border-bottom: 1px solid red;
+}
+
+.topFileStyle {
+    display: flex;
+    align-items: center;
+}
+
+.topFileStyle p {
+    font-size: 12px;
+
+}
+
+.topFileStyle svg {
+    font-size: 12px;
+    margin: 2px 0px 0px 2px
+}
+
+.s {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.runBottomFile {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 2px rgba(0, 0, 0, 0.23);
+
+    width: 100%;
+    border-bottom: 1px solid black;
+    background-color: #232533;
+}
+
+.excuteP {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.package {
+    color: #9678CA;
+}
+
+.excuteFileName {
+    font-size: 10px;
+    color: #6272A4;
+    margin-left: 2px;
+}
+
 /* responsive */
 @media (max-width: 1200px) {
     .logoVs {
@@ -112,6 +245,10 @@
 
 @media (max-width: 520px) {
     .topMenu {
+        display: none;
+    }
+
+    .collapseCode {
         display: none;
     }
 }
