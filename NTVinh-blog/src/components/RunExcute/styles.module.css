@@ -1,5 +1,5 @@
 .container {
-    background-color: #0B132B;
+    background-color: #232533;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -108,6 +108,11 @@
     width: 130px;
 }
 
+.topFile {
+    display: flex;
+    align-items: center;
+}
+
 .file {
     display: flex;
     align-items: center;
@@ -135,12 +140,18 @@
     cursor: pointer;
 }
 
-
+.hiddenOnMobile {
+    display: none;
+}
 
 .js {
     color: rgb(218, 218, 7);
     font-size: 14px;
+}
 
+.sass {
+    font-size: 14px;
+    color: #fa6f9d;
 }
 
 .collapseFile p {
@@ -163,6 +174,7 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .screenVs svg {
@@ -173,7 +185,6 @@
 .topFile {
     border-top: 1px solid #834169;
     padding: 0px 0px 0px 2px;
-    cursor: pointer;
     color: #fff;
     height: 20px;
 }
@@ -193,6 +204,8 @@
 .topFileStyle {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    padding-right: 16px;
 }
 
 .topFileStyle p {
@@ -200,9 +213,9 @@
 
 }
 
-.topFileStyle svg {
+.topFileStyle div {
     font-size: 12px;
-    margin: 2px 0px 0px 2px
+
 }
 
 .s {
@@ -231,9 +244,27 @@
 }
 
 .excuteFileName {
-    font-size: 10px;
+    font-size: 10px !important;
     color: #6272A4;
-    margin-left: 2px;
+    margin-left: 2px !important;
+
+}
+
+.keyBoard {
+    background-color: #2C2C2C;
+    padding: 0px 4px;
+    border-radius: 3px;
+    color: #7E7E7E;
+}
+
+
+pre[class*="language-"] {
+    background-color: transparent !important;
+}
+
+pre[class*="language-"] {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* responsive */

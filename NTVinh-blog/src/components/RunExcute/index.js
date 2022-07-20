@@ -1,8 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
-import Prism from "prismjs";
-import { useEffect, useState } from "react";
-import { DiJavascript1 } from "react-icons/di";
+import { useState } from "react";
+import { DiJavascript1, DiSass } from "react-icons/di";
 import { RiCloseFill } from "react-icons/ri";
 import { SiVisualstudiocode } from "react-icons/si";
 import {
@@ -17,9 +16,13 @@ import {
   VscSearch,
   VscSymbolMethod,
 } from "react-icons/vsc";
-import { dataFileTopVscode } from "../../contants/topFileVscode";
+import {
+  dataFileRunTopVscode,
+  dataFileTopVscode,
+} from "../../contants/topFileVscode";
 import styles from "./styles.module.css";
 import VisualNotRun from "./visualNotRun";
+import VisualRun from "./VisualRun";
 
 const dataIconLeft = [
   <VscFiles />,
@@ -29,16 +32,21 @@ const dataIconLeft = [
   <VscExtensions />,
 ];
 const dataIconLeftSpace = [<VscAccount />, <VscGear />];
-function RunExcute(props) {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+function RunExcute({ handleExcute }) {
+  console.log(handleExcute);
   const [hover, setHover] = useState(false);
   const [showFile, setShowfile] = useState(false);
   const [excute, setExcute] = useState(false);
+  const [hoverIdClose, setHoverIdClose] = useState(null);
   const handleShowfile = () => setShowfile(!showFile);
   const handleShowExxcute = () => setExcute(true);
+  const handleHover = (id) => {
+    if (id !== hoverIdClose) {
+      setHoverIdClose(id);
+    }
+    if (!id) setHover(false);
+  };
+
   return (
     <>
       <Grid container item className={styles.container}>
@@ -91,12 +99,23 @@ function RunExcute(props) {
               {showFile ? <VscChevronDown /> : <VscChevronRight />}
               <Typography>VinhDz</Typography>
             </Grid>
-
             {showFile && (
-              <Grid className={styles.collapseFile} onClick={handleShowExxcute}>
-                <DiJavascript1 className={styles.js} />
-                <Typography>index.js</Typography>
-              </Grid>
+              <>
+                <Grid
+                  className={styles.collapseFile}
+                  onClick={handleShowExxcute}
+                >
+                  <DiJavascript1 className={styles.js} />
+                  <Typography>index.js</Typography>
+                </Grid>
+                <Grid
+                  className={styles.collapseFile}
+                  onClick={handleShowExxcute}
+                >
+                  <DiSass className={styles.sass} />
+                  <Typography>styles.scss</Typography>
+                </Grid>
+              </>
             )}
           </Grid>
 
@@ -105,19 +124,25 @@ function RunExcute(props) {
               <>
                 <Grid
                   className={clsx(styles.topFile, !hover && styles.paddingR)}
-                  onMouseEnter={() => setHover(true)}
-                  onMouseLeave={() => setHover(false)}
                 >
-                  <Grid className={clsx(styles.topFileStyle)}>
-                    <DiJavascript1 className={styles.js} />
-                    <Typography>index.js</Typography>
-                    {hover && <RiCloseFill onClick={() => setExcute(false)} />}
-                  </Grid>
+                  {dataFileRunTopVscode.map((file) => (
+                    <Grid
+                      className={clsx(styles.topFileStyle)}
+                      onMouseEnter={() => handleHover(file.id)}
+                      onMouseLeave={() => handleHover(null)}
+                    >
+                      <Grid>{file.icon}</Grid>
+                      <Typography>{file.fileName}</Typography>
+                      {file.id === hoverIdClose && (
+                        <RiCloseFill onClick={() => setExcute(false)} />
+                      )}
+                    </Grid>
+                  ))}
                 </Grid>
 
                 <Grid className={styles.runBottomFile}>
                   <Grid className={styles.excuteP}>
-                    <VscChevronRight />{" "}
+                    <VscChevronRight />
                     <VscSymbolMethod className={styles.package} />{" "}
                     <Typography className={styles.excuteFileName}>
                       VinhDz
@@ -125,7 +150,12 @@ function RunExcute(props) {
                   </Grid>
                 </Grid>
 
-                <Grid className={styles.primsmCode}>huhuhu</Grid>
+                <Grid className={styles.primsmCode}>
+                  <VisualRun
+                    language="javascript"
+                    handleExcute={handleExcute}
+                  />
+                </Grid>
               </>
             ) : (
               <VisualNotRun />

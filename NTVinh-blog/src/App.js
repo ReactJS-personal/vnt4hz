@@ -26,13 +26,16 @@ function App() {
   const [theme, toggleTheme] = Usedarkmode();
   const [isExcute, setIsExcute] = useState(true);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-
+  const handleExcute = (isExcute) => {
+    setIsExcute(isExcute);
+  };
+  console.log(isExcute);
   return (
     <>
       {/* <FmotionScroll /> */}
 
       {isExcute ? (
-        <RunExcute />
+        <RunExcute handleExcute={handleExcute} />
       ) : (
         <ThemeProvider theme={themeMode}>
           <Router>
