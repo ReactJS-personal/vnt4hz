@@ -285,7 +285,7 @@ function RunExcute({ handleExcute }) {
                         onKeyDown={handleEnterComand}
                       />
                     </Grid>
-                    {!runCm && (
+                    {runCm && (
                       <Typography>
                         <VscChevronRight />{" "}
                         <span
