@@ -48,6 +48,7 @@
 .center {
     min-width: 100vw;
     flex: 2 !important;
+    flex-wrap: nowrap !important;
 }
 
 .logoVs {
@@ -183,7 +184,7 @@
 }
 
 .topFile {
-    border-top: 1px solid #834169;
+    border-top: 1px solid rgba(149, 128, 255, 0.9);
     padding: 0px 0px 0px 2px;
     color: #fff;
     height: 20px;
@@ -267,6 +268,27 @@ pre[class*="language-"] {
     margin: 0 !important;
 }
 
+.menuTerminal {
+    left: 280px !important;
+    top: 20px !important;
+
+}
+
+.menuTerminal div[class*='MuiPaper-elevation8'] {
+    box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.10), 0 0.5px 0.5px rgba(0, 0, 0, 0.100) !important;
+}
+
+.menuTerminal ul {
+    background-color: #343746;
+    box-shadow: unset !important;
+    color: #fff;
+
+}
+
+.menuTerminal ul li {
+    font-size: 14px !important;
+}
+
 .btnRun {
     background-image: linear-gradient(90deg, #e55d87 0, #5fc3e4 51%, #e55d87);
     padding: 8px 22px !important;
@@ -305,6 +327,71 @@ pre[class*="language-"] {
     font-size: 14px;
     animation-duration: 450ms !important;
     color: #d4e7f8 !important;
+}
+
+.openTerminal {
+    background-color: #232533;
+    width: 100%;
+    border-top: 1px solid rgba(149, 128, 255, 0.9);
+    height: 85px;
+    max-height: 85px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.terminalFile {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    color: #fff;
+    margin-left: 10px;
+    justify-content: space-between;
+}
+
+.terminalFile p {
+    font-size: 8px !important;
+    margin-right: 10px;
+    color: #6272A4;
+    cursor: pointer;
+}
+
+.activeTerminal {
+    border-bottom: .5px solid rgba(255, 128, 191, 0.9);
+}
+
+.terminalFile p:hover {
+    color: #fff;
+}
+
+.terminalFileName {
+    display: flex;
+    align-items: center;
+}
+
+.comandLine {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.comandLine p {
+    font-size: 10px !important;
+}
+
+.commandI {
+    display: flex;
+    align-items: center;
+}
+
+.commandI input {
+    height: 20px;
+    font-size: 10px;
+    width: 50%;
+    max-width: 50%;
+    background-color: #232533;
+    outline: none;
+    border: none;
+    color: #fff;
 }
 
 /* responsive */

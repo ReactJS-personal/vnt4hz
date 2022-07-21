@@ -1,4 +1,6 @@
 import { Grid, Typography } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import clsx from "clsx";
 import React from "react";
 import { SiVisualstudiocode } from "react-icons/si";
@@ -6,7 +8,8 @@ import screenOrientation from "../../tiul/sreenOrientation";
 import useMobileDetect from "../hooks/useMobile";
 import styles from "./styles.module.css";
 
-function VisualNotRun() {
+function VisualNotRun({ handleExcute }) {
+  const [load, setLoad] = React.useState(false);
   const { isMobile } = useMobileDetect();
   const [mobile, setMobile] = React.useState(isMobile);
   React.useEffect(() => {
@@ -29,6 +32,13 @@ function VisualNotRun() {
       false
     );
   }, [mobile]);
+
+  const handleGotoVdz = () => {
+    setTimeout(() => {
+      handleExcute(false);
+    }, Math.floor(Math.random() * 3400 + 1));
+    setLoad(true);
+  };
 
   return (
     <>
@@ -59,9 +69,28 @@ function VisualNotRun() {
         </Grid>
 
         {mobile && (
-          <Typography style={{ color: " #7E7E7E" }}>
-            You are using a mobile device
-          </Typography>
+          <>
+            <Typography style={{ color: " #7E7E7E" }}>
+              You are using a mobile device
+            </Typography>
+            <Button
+              onClick={handleGotoVdz}
+              variant="contained"
+              className={clsx(styles.btnRun, load && styles.btnRunning)}
+            >
+              {load ? (
+                <CircularProgress
+                  variant="indeterminate"
+                  disableShrink
+                  size={20}
+                  thickness={4}
+                  className={styles.loadCir}
+                />
+              ) : (
+                "Run with mobile"
+              )}
+            </Button>
+          </>
         )}
       </Grid>
     </>

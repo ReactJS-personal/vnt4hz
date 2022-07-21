@@ -1,4 +1,10 @@
-import { Grid, Typography } from "@material-ui/core";
+import {
+  CircularProgress,
+  Grid,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
@@ -19,6 +25,7 @@ import { v4 as uuidv4 } from "uuid";
 import {
   dataFileRunTopVscode,
   dataFileTopVscode,
+  dataTerminal,
 } from "../../contants/topFileVscode";
 import useKey from "../hooks/useKey";
 import styles from "./styles.module.css";
@@ -63,15 +70,77 @@ function RunExcute({ handleExcute }) {
       setExcute(false);
     }
   };
+
+  // terminal
+  const [openT, setOpenT] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleClickTerminal = () => setOpenT(true);
+
+  const [value, setValue] = useState("");
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+  const [runCm, setRunCm] = useState(false);
+  const handleEnterComand = (e) => {
+    if (
+      e.keyCode === 13 &&
+      (value.includes("npm start") ||
+        value.includes("npm run dev") ||
+        value.includes("yarn start"))
+    ) {
+      setTimeout(() => {
+        handleExcute(false);
+      }, Math.floor(Math.random() * 4500 + 1));
+      setRunCm(true);
+    }
+  };
   return (
     <>
       <Grid container item className={styles.container}>
         <Grid container xs={1} item className={styles.topHeader}>
           <SiVisualstudiocode className={styles.logoVs} />
           <Grid className={styles.topMenu}>
-            {dataFileTopVscode.map((menu, i) => (
-              <Typography key={i}>{menu}</Typography>
-            ))}
+            {dataFileTopVscode.map((menu, i) => {
+              return (
+                <>
+                  <Typography
+                    style={{ position: "relative" }}
+                    key={uuidv4()}
+                    onClick={menu.id === 7 ? handleClick : null}
+                  >
+                    {menu.fileName}
+                  </Typography>
+                  <Menu
+                    style={{ position: "absolute" }}
+                    id="fade-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={open}
+                    getContentAnchorEl={null}
+                    onClose={handleClose}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    transformOrigin={{ horizontal: "center" }}
+                    className={styles.menuTerminal}
+                  >
+                    <MenuItem onClick={handleClickTerminal}>
+                      New Terminal
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>Split Terminal</MenuItem>
+                    <MenuItem onClick={handleClose}>Run Task</MenuItem>
+                  </Menu>
+                </>
+              );
+            })}
           </Grid>
 
           <Grid className={styles.nameMain}>
@@ -179,7 +248,65 @@ function RunExcute({ handleExcute }) {
                 </Grid>
               </>
             ) : (
-              <VisualNotRun />
+              <VisualNotRun handleExcute={handleExcute} />
+            )}
+            {openT && (
+              <>
+                <Grid className={styles.openTerminal}>
+                  <Grid key={uuidv4()} className={styles.terminalFile}>
+                    <Grid className={styles.terminalFileName}>
+                      {dataTerminal.map((data) => (
+                        <Typography
+                          className={clsx(
+                            data.id === 3 && styles.activeTerminal
+                          )}
+                        >
+                          {data.fileName}
+                        </Typography>
+                      ))}
+                    </Grid>
+                    <Grid style={{ marginRight: "14px" }}>
+                      <RiCloseFill
+                        style={{
+                          cursor: "pointer",
+                          color: "#fff",
+                        }}
+                        onClick={() => setOpenT(false)}
+                      />
+                    </Grid>
+                  </Grid>
+                  <Grid className={styles.comandLine}>
+                    <Typography>{`Copyright (C) VDZ. All rights reserved`}</Typography>
+                    <Grid className={styles.commandI}>
+                      <Typography>PS C:\Users\project\vdz&gt;</Typography>
+                      <input
+                        value={value}
+                        onChange={handleChange}
+                        onKeyDown={handleEnterComand}
+                      />
+                    </Grid>
+                    {!runCm && (
+                      <Typography>
+                        <VscChevronRight />{" "}
+                        <span
+                          style={{
+                            color: "#6BBBF7",
+                          }}
+                        >
+                          Starting the development server...
+                          <CircularProgress
+                            variant="indeterminate"
+                            disableShrink
+                            size={12}
+                            thickness={4}
+                            className={styles.loadCir}
+                          />
+                        </span>
+                      </Typography>
+                    )}
+                  </Grid>
+                </Grid>
+              </>
             )}
           </Grid>
         </Grid>
@@ -187,5 +314,5 @@ function RunExcute({ handleExcute }) {
     </>
   );
 }
-
+// Starting the development server...
 export default RunExcute;

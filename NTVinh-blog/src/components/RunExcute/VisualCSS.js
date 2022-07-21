@@ -21,7 +21,7 @@ function VisualCSS() {
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-        <pre className="item">
+        <pre className="item" style={{ fontSize: "14px" }}>
           <code className="language-css">{SCSSparse}</code>
         </pre>
       </motion.div>

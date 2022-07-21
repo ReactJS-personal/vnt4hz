@@ -35,7 +35,7 @@ function VisualRun({ handleExcute }) {
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-        <pre>
+        <pre style={{ fontSize: "14px" }}>
           <code className="language-js">{JSparse}</code>
         </pre>
 
