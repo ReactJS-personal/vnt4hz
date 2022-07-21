@@ -17,7 +17,7 @@ import {
   AiOutlineLike,
 } from "react-icons/ai";
 import useSound from "use-sound";
-import v from "../../assets/images/v.jpg";
+import v from "../../assets/images/VDZ.jpg";
 import heartStories from "../../assets/sounds/heartStories.mp3";
 import likeStories from "../../assets/sounds/likeStories.wav";
 import storiesOpen from "../../assets/sounds/storiesOpen.mp3";

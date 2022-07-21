@@ -34,13 +34,30 @@ function VisualNotRun() {
     <>
       <Grid xs={12} item className={styles.screenVs}>
         <SiVisualstudiocode />
-        <Typography
-          style={{ color: " #7E7E7E" }}
-          className={clsx(mobile && styles.hiddenOnMobile)}
-        >
-          Press <span className={styles.keyBoard}>ctrl</span> +{" "}
-          <span className={clsx(styles.keyBoard)}>k</span> to run excute
-        </Typography>
+        <Grid>
+          <Typography
+            style={{ color: " #7E7E7E" }}
+            className={clsx(mobile && styles.hiddenOnMobile)}
+          >
+            Press <span className={styles.keyBoard}>ctrl</span> +{" "}
+            <span className={clsx(styles.keyBoard)}>v</span> to run excute
+          </Typography>
+          <Typography
+            style={{ color: " #7E7E7E" }}
+            className={clsx(mobile && styles.hiddenOnMobile)}
+          >
+            Press <span className={styles.keyBoard}>ctrl</span> +{" "}
+            <span className={clsx(styles.keyBoard)}>d</span> to show file
+          </Typography>
+          <Typography
+            style={{ color: " #7E7E7E" }}
+            className={clsx(mobile && styles.hiddenOnMobile)}
+          >
+            Press <span className={styles.keyBoard}>ctrl</span> +{" "}
+            <span className={clsx(styles.keyBoard)}>z</span> to run terminal
+          </Typography>
+        </Grid>
+
         {mobile && (
           <Typography style={{ color: " #7E7E7E" }}>
             You are using a mobile device

@@ -1,7 +1,6 @@
 import { Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { useState } from "react";
-import { DiJavascript1, DiSass } from "react-icons/di";
 import { RiCloseFill } from "react-icons/ri";
 import { SiVisualstudiocode } from "react-icons/si";
 import {
@@ -16,11 +15,14 @@ import {
   VscSearch,
   VscSymbolMethod,
 } from "react-icons/vsc";
+import { v4 as uuidv4 } from "uuid";
 import {
   dataFileRunTopVscode,
   dataFileTopVscode,
 } from "../../contants/topFileVscode";
+import useKey from "../hooks/useKey";
 import styles from "./styles.module.css";
+import VisualCSS from "./VisualCSS";
 import VisualNotRun from "./visualNotRun";
 import VisualRun from "./VisualRun";
 
@@ -33,20 +35,34 @@ const dataIconLeft = [
 ];
 const dataIconLeftSpace = [<VscAccount />, <VscGear />];
 function RunExcute({ handleExcute }) {
-  console.log(handleExcute);
   const [hover, setHover] = useState(false);
   const [showFile, setShowfile] = useState(false);
   const [excute, setExcute] = useState(false);
   const [hoverIdClose, setHoverIdClose] = useState(null);
+  const [closeFile, setCloseFile] = useState(false);
   const handleShowfile = () => setShowfile(!showFile);
-  const handleShowExxcute = () => setExcute(true);
+
   const handleHover = (id) => {
     if (id !== hoverIdClose) {
       setHoverIdClose(id);
     }
     if (!id) setHover(false);
   };
+  useKey("ctrld", () => setShowfile(true));
 
+  const [fileId, setFileId] = useState(null);
+  const handleOpenFileWithID = (id) => {
+    if (fileId !== id) setFileId(id);
+    setExcute(true);
+    setCloseFile(false);
+  };
+
+  const handleCloseFileWithID = (id) => {
+    if (fileId === id) {
+      setCloseFile(true);
+      setExcute(false);
+    }
+  };
   return (
     <>
       <Grid container item className={styles.container}>
@@ -77,7 +93,7 @@ function RunExcute({ handleExcute }) {
             <Grid>
               {dataIconLeft.map((item, index) => (
                 <Grid
-                  key={index}
+                  key={uuidv4()}
                   style={{ width: "40px", height: "40px" }}
                   container
                   className={styles.wrapIcon}
@@ -88,7 +104,7 @@ function RunExcute({ handleExcute }) {
             </Grid>
             <Grid>
               {dataIconLeftSpace.map((item, index) => (
-                <Grid key={index} className={styles.wrapIconBottom}>
+                <Grid key={uuidv4()} className={styles.wrapIconBottom}>
                   {item}
                 </Grid>
               ))}
@@ -101,45 +117,46 @@ function RunExcute({ handleExcute }) {
             </Grid>
             {showFile && (
               <>
-                <Grid
-                  className={styles.collapseFile}
-                  onClick={handleShowExxcute}
-                >
-                  <DiJavascript1 className={styles.js} />
-                  <Typography>index.js</Typography>
-                </Grid>
-                <Grid
-                  className={styles.collapseFile}
-                  onClick={handleShowExxcute}
-                >
-                  <DiSass className={styles.sass} />
-                  <Typography>styles.scss</Typography>
-                </Grid>
+                {dataFileRunTopVscode.map((file) => (
+                  <Grid
+                    className={styles.collapseFile}
+                    onClick={() => handleOpenFileWithID(file.id)}
+                    // onClick={handleShowExxcute}
+                    key={uuidv4()}
+                  >
+                    <Grid>{file.icon}</Grid>
+                    <Typography>{file.fileName}</Typography>
+                  </Grid>
+                ))}
               </>
             )}
           </Grid>
 
           <Grid className={styles.s}>
-            {excute ? (
-              <>
+            <Grid className={clsx(styles.topFile, !hover && styles.paddingR)}>
+              {dataFileRunTopVscode.map((file) => (
                 <Grid
-                  className={clsx(styles.topFile, !hover && styles.paddingR)}
+                  className={clsx(styles.topFileStyle)}
+                  onMouseEnter={() => handleHover(file.id)}
+                  onMouseLeave={() => handleHover(null)}
+                  key={uuidv4()}
                 >
-                  {dataFileRunTopVscode.map((file) => (
-                    <Grid
-                      className={clsx(styles.topFileStyle)}
-                      onMouseEnter={() => handleHover(file.id)}
-                      onMouseLeave={() => handleHover(null)}
-                    >
+                  {fileId === file.id && !closeFile && (
+                    <>
                       <Grid>{file.icon}</Grid>
                       <Typography>{file.fileName}</Typography>
                       {file.id === hoverIdClose && (
-                        <RiCloseFill onClick={() => setExcute(false)} />
+                        <RiCloseFill
+                          onClick={() => handleCloseFileWithID(file.id)}
+                        />
                       )}
-                    </Grid>
-                  ))}
+                    </>
+                  )}
                 </Grid>
-
+              ))}
+            </Grid>
+            {excute ? (
+              <>
                 <Grid className={styles.runBottomFile}>
                   <Grid className={styles.excuteP}>
                     <VscChevronRight />
@@ -151,10 +168,14 @@ function RunExcute({ handleExcute }) {
                 </Grid>
 
                 <Grid className={styles.primsmCode}>
-                  <VisualRun
-                    language="javascript"
-                    handleExcute={handleExcute}
-                  />
+                  {fileId === 1 ? (
+                    <VisualRun
+                      language="javascript"
+                      handleExcute={handleExcute}
+                    />
+                  ) : (
+                    <VisualCSS />
+                  )}
                 </Grid>
               </>
             ) : (

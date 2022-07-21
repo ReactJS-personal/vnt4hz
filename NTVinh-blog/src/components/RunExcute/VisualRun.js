@@ -1,18 +1,24 @@
 import { Grid } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import clsx from "clsx";
+import { motion } from "framer-motion";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import React, { useEffect } from "react";
 import { JSparse } from "../../tiul/Prism";
+import styles from "./styles.module.css";
 
 function VisualRun({ handleExcute }) {
   const [load, setLoad] = React.useState(false);
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   const handleGotoVdz = () => {
     setTimeout(() => {
       handleExcute(false);
-    }, 1000);
+    }, Math.floor(Math.random() * 3400 + 1));
     setLoad(true);
   };
   return (
@@ -20,12 +26,37 @@ function VisualRun({ handleExcute }) {
       style={{
         width: "100%",
         height: "100%",
+        transition: "all .2s",
       }}
     >
-      <pre>
-        <code className="language-js">{JSparse}</code>
-      </pre>
-      <button onClick={handleGotoVdz}>{load ? "loading" : "runVdz"}</button>
+      <motion.div
+        initial={{ y: 12, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <pre>
+          <code className="language-js">{JSparse}</code>
+        </pre>
+
+        <Button
+          onClick={handleGotoVdz}
+          variant="contained"
+          className={clsx(styles.btnRun, load && styles.btnRunning)}
+        >
+          {load ? (
+            <CircularProgress
+              variant="indeterminate"
+              disableShrink
+              size={20}
+              thickness={4}
+              className={styles.loadCir}
+            />
+          ) : (
+            "Run code 🤖"
+          )}
+        </Button>
+      </motion.div>
     </Grid>
   );
 }

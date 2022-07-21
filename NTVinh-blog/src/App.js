@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import useKey from "./components/hooks/useKey";
 import Profile from "./components/Profile/Profile";
 import RunExcute from "./components/RunExcute";
 import ScrollToTop from "./components/ScrollTop/ScrollToTop";
@@ -29,7 +30,7 @@ function App() {
   const handleExcute = (isExcute) => {
     setIsExcute(isExcute);
   };
-  console.log(isExcute);
+  useKey("ctrlv", () => setIsExcute(false));
   return (
     <>
       {/* <FmotionScroll /> */}
