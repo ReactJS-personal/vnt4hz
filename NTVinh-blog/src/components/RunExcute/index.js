@@ -91,19 +91,27 @@ function RunExcute({ handleExcute }) {
     setValue(e.target.value);
   };
   const [runCm, setRunCm] = useState(false);
+  const [errCmd, setErrcmd] = useState(false);
   const handleEnterComand = (e) => {
-    if (
-      e.keyCode === 13 &&
-      (value.includes("npm start") ||
+    if (e.keyCode === 13) {
+      if (
+        value.includes("npm start") ||
         value.includes("npm run dev") ||
-        value.includes("yarn start"))
-    ) {
-      setTimeout(() => {
-        handleExcute(false);
-      }, Math.floor(Math.random() * 4500 + 1));
-      setRunCm(true);
+        value.includes("yarn start")
+      ) {
+        setTimeout(() => {
+          handleExcute(false);
+        }, Math.floor(Math.random() * 4500 + 1));
+        setRunCm(true);
+        setErrcmd(false);
+      } else {
+        setErrcmd(true);
+      }
     }
   };
+
+  useKey("ctrlz", () => setOpenT(true));
+  console.log(runCm);
   return (
     <>
       <Grid container item className={styles.container}>
@@ -302,6 +310,12 @@ function RunExcute({ handleExcute }) {
                             className={styles.loadCir}
                           />
                         </span>
+                      </Typography>
+                    )}
+                    {errCmd && (
+                      <Typography>
+                        npm <span style={{ color: "red" }}>ERR!</span> search
+                        must be called with arguments
                       </Typography>
                     )}
                   </Grid>
