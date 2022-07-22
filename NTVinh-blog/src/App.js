@@ -1,5 +1,7 @@
 import { Container, Grid } from "@material-ui/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useMobileDetect from "./components/hooks/useMobile";
+import screenOrientation from "./tiul/sreenOrientation";
 // import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //chat mess
@@ -31,14 +33,38 @@ function App() {
     setIsExcute(isExcute);
   };
   useKey("ctrlv", () => setIsExcute(false));
+
+  // check mobile
+  const { isMobile } = useMobileDetect();
+  const [mobile, setMobile] = useState(isMobile);
+  useEffect(() => {
+    const landscape = screenOrientation(window);
+    if (landscape) {
+      setMobile(false);
+    }
+  }, []);
+  useEffect(() => {
+    const landscape = screenOrientation(window);
+    window.addEventListener(
+      "orientationchange",
+      () => {
+        if (landscape) {
+          setMobile(true);
+        } else {
+          setMobile(false);
+        }
+      },
+      false
+    );
+  }, [mobile]);
   return (
     <>
       {/* <FmotionScroll /> */}
 
       {isExcute ? (
-        <RunExcute handleExcute={handleExcute} />
+        <RunExcute handleExcute={handleExcute} isMobile={mobile} />
       ) : (
-        <ThemeProvider theme={themeMode}>
+        <ThemeProvider theme={themeMode} isMobile={mobile}>
           <Router>
             <Container className={"ctn_top"}>
               <Grid container spacing={7}>

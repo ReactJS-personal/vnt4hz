@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 import { JSparse } from "../../tiul/Prism";
 import styles from "./styles.module.css";
 
-function VisualRun({ handleExcute }) {
+function VisualRun({ handleExcute, isMobile }) {
   const [load, setLoad] = React.useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function VisualRun({ handleExcute }) {
   const handleGotoVdz = () => {
     setTimeout(() => {
       handleExcute(false);
-    }, Math.floor(Math.random() * 4400 + 1));
+    }, Math.floor(Math.random() * 5400 + 1));
     setLoad(true);
   };
   return (

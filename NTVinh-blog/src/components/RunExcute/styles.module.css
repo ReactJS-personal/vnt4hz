@@ -223,6 +223,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    overflow: overlay !important;
 }
 
 .runBottomFile {
@@ -393,6 +394,38 @@ pre[class*="language-"] {
     outline: none;
     border: none;
     color: #fff;
+}
+
+.fileMobile {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid rgba(149, 128, 255, 0.9);
+}
+
+.fileMobileRun {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.terminalMobile {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 10px;
+
+}
+
+.terminalBtn {
+    background-color: rgba(149, 128, 255, 0.9) !important;
+    border-radius: 20px !important;
+    padding: 2px 10px !important;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize !important;
 }
 
 /* responsive */

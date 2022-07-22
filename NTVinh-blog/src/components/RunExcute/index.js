@@ -1,4 +1,5 @@
 import {
+  Button,
   CircularProgress,
   Grid,
   Menu,
@@ -41,7 +42,7 @@ const dataIconLeft = [
   <VscExtensions />,
 ];
 const dataIconLeftSpace = [<VscAccount />, <VscGear />];
-function RunExcute({ handleExcute }) {
+function RunExcute({ handleExcute, isMobile }) {
   const [hover, setHover] = useState(false);
   const [showFile, setShowfile] = useState(false);
   const [excute, setExcute] = useState(false);
@@ -208,7 +209,6 @@ function RunExcute({ handleExcute }) {
               </>
             )}
           </Grid>
-
           <Grid className={styles.s}>
             <Grid className={clsx(styles.topFile, !hover && styles.paddingR)}>
               {dataFileRunTopVscode.map((file) => (
@@ -256,7 +256,7 @@ function RunExcute({ handleExcute }) {
                 </Grid>
               </>
             ) : (
-              <VisualNotRun handleExcute={handleExcute} />
+              <VisualNotRun handleExcute={handleExcute} isMobile={isMobile} />
             )}
             {openT && (
               <>
@@ -324,6 +324,31 @@ function RunExcute({ handleExcute }) {
             )}
           </Grid>
         </Grid>
+        {isMobile && (
+          <Grid style={{ color: "#fff" }} className={styles.fileMobile}>
+            <Grid className={styles.fileMobileRun}>
+              {dataFileRunTopVscode.map((file) => (
+                <Grid
+                  className={styles.collapseFile}
+                  onClick={() => handleOpenFileWithID(file.id)}
+                  // onClick={handleShowExxcute}
+                  key={uuidv4()}
+                >
+                  <Grid>{file.icon}</Grid>
+                  <Typography>{file.fileName}</Typography>
+                </Grid>
+              ))}
+              <Grid className={styles.terminalMobile}>
+                <Button
+                  className={styles.terminalBtn}
+                  onClick={handleClickTerminal}
+                >
+                  Terminal
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        )}
       </Grid>
     </>
   );
