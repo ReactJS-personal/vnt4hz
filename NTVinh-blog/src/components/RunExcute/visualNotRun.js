@@ -36,7 +36,7 @@ function VisualNotRun({ handleExcute }) {
   const handleGotoVdz = () => {
     setTimeout(() => {
       handleExcute(false);
-    }, Math.floor(Math.random() * 3400 + 1));
+    }, Math.floor(Math.random() * 4400 + 1));
     setLoad(true);
   };
 
@@ -74,9 +74,8 @@ function VisualNotRun({ handleExcute }) {
               You are using a mobile device
             </Typography>
             <Button
+              className={clsx(styles.btnVdz, load && styles.btnRunning)}
               onClick={handleGotoVdz}
-              variant="contained"
-              className={clsx(styles.btnRun, load && styles.btnRunning)}
             >
               {load ? (
                 <CircularProgress
@@ -87,7 +86,7 @@ function VisualNotRun({ handleExcute }) {
                   className={styles.loadCir}
                 />
               ) : (
-                "Run with mobile"
+                "Run code 🤖"
               )}
             </Button>
           </>

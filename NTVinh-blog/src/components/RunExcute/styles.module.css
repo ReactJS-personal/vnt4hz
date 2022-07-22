@@ -321,6 +321,7 @@ pre[class*="language-"] {
     padding: 10px 60px !important;
     background-size: 200% auto;
     transition: unset !important;
+
 }
 
 .loadCir {
@@ -409,4 +410,78 @@ pre[class*="language-"] {
     .collapseCode {
         display: none;
     }
+}
+
+
+@keyframes VDZ {
+    0% {
+        background-position: 10% 0;
+    }
+
+    50% {
+        background-position: 91% 100%;
+    }
+
+    100% {
+        background-position: 10% 0;
+    }
+}
+
+
+.btnVdz {
+    border-radius: 30px !important;
+    font-size: 12px !important;
+    padding: 22px 14px !important;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: #fff !important;
+    font-family: gilroyBold, sans-serif;
+    height: 25px;
+    justify-content: center;
+    letter-spacing: 1px;
+    position: relative;
+    width: 130px !important;
+    animation: VDZ 4s ease infinite;
+    background: radial-gradient(135% 117% at 104.31% 94%, #ee99f7 13.45%, rgba(173, 112, 255, .73) 37.82%, rgba(140, 107, 255, .65) 55.04%, rgba(0, 255, 209, .85) 78.15%, rgba(178, 161, 243, .65));
+    background-size: 600% 600%;
+    z-index: 15;
+    margin: 10px 0px 0px 10px !important;
+}
+
+.btnVdz::before {
+    animation: VDZ 8s ease infinite;
+    filter: blur(20px);
+    opacity: 1;
+    background: -webkit-linear-gradient(149deg, #ee99f770, #ad70ff70, #8c6bff70, #00ffd170, #fff9ff70);
+    background-size: 1%;
+    border-radius: 100px;
+    bottom: -5px;
+    content: "";
+    left: -5px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    transition: .5s;
+    /* background-image: url('../../images/noise_vdz.png') !important; */
+    z-index: -1;
+}
+
+.btnVdz:after {
+    background: -webkit-linear-gradient(149deg, #ee99f770, #ad70ff70, #8c6bff70, #00ffd170, #fff9ff70);
+    background-blend-mode: color-dodge;
+    border-radius: 40px;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+    background-image: url('../../images/noise_vdz.png') !important;
+    object-fit: cover;
+    min-height: 100%;
+    max-width: 100%;
+    height: 10px !important;
+    ;
 }

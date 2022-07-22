@@ -18,7 +18,7 @@ function VisualRun({ handleExcute }) {
   const handleGotoVdz = () => {
     setTimeout(() => {
       handleExcute(false);
-    }, Math.floor(Math.random() * 3400 + 1));
+    }, Math.floor(Math.random() * 4400 + 1));
     setLoad(true);
   };
   return (
@@ -39,10 +39,16 @@ function VisualRun({ handleExcute }) {
           <code className="language-js">{JSparse}</code>
         </pre>
 
-        <Button
+        {/* <Button
           onClick={handleGotoVdz}
           variant="contained"
           className={clsx(styles.btnRun, load && styles.btnRunning)}
+        >
+         
+        </Button> */}
+        <Button
+          className={clsx(styles.btnVdz, load && styles.btnRunning)}
+          onClick={handleGotoVdz}
         >
           {load ? (
             <CircularProgress
