@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 
 function VisualRun({ handleExcute, isMobile }) {
   const [load, setLoad] = React.useState(false);
-
+  // console.log();
   useEffect(() => {
     Prism.highlightAll();
   }, []);

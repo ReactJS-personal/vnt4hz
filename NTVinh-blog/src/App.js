@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //dark theme and light theme
 import { ThemeProvider } from "styled-components";
 import "./App.css";
+import GridAnimated from "./components/AnimationPoint/GridAnimated";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import useKey from "./components/hooks/useKey";
@@ -62,49 +63,54 @@ function App() {
       {/* <FmotionScroll /> */}
 
       {isExcute ? (
-        <RunExcute handleExcute={handleExcute} isMobile={mobile} />
+        <>
+          <RunExcute handleExcute={handleExcute} isMobile={mobile} />
+        </>
       ) : (
-        <ThemeProvider theme={themeMode} isMobile={mobile}>
-          <Router>
-            <Container className={"ctn_top"}>
-              <Grid container spacing={7}>
-                <ScrollToTop showBelow={280} />
-                <Grid item lg={3} md={4} xs={12} sm={12}>
-                  <Profile theme={theme} />
-                  <GlobalStyles />
+        <>
+          <ThemeProvider theme={themeMode} isMobile={mobile}>
+            <Router>
+              <Container className={"ctn_top"}>
+                <GridAnimated />
+                <Grid container spacing={7}>
+                  <ScrollToTop showBelow={280} />
+                  <Grid item lg={3} md={4} xs={12} sm={12}>
+                    <Profile theme={theme} />
+                    <GlobalStyles />
+                  </Grid>
+                  <Grid item xs>
+                    <RouterScrollToTop />
+                    <Header theme={theme} toggleTheme={toggleTheme} />
+                    <div className="main-content container_shadow">
+                      <Switch>
+                        <Route exact path="/">
+                          <Resume theme={theme} />{" "}
+                        </Route>
+                        <Route path="/pflio">
+                          <PortFLO />
+                        </Route>
+                        <Route path="/blog">
+                          <Blog />
+                        </Route>
+                        <Route path="/contact">
+                          <Contact />
+                        </Route>
+                        <Route>
+                          <Notfound />
+                        </Route>
+                      </Switch>
+                    </div>
+                    <Footer />
+                  </Grid>
                 </Grid>
-                <Grid item xs>
-                  <RouterScrollToTop />
-                  <Header theme={theme} toggleTheme={toggleTheme} />
-                  <div className="main-content container_shadow">
-                    <Switch>
-                      <Route exact path="/">
-                        <Resume theme={theme} />{" "}
-                      </Route>
-                      <Route path="/pflio">
-                        <PortFLO />
-                      </Route>
-                      <Route path="/blog">
-                        <Blog />
-                      </Route>
-                      <Route path="/contact">
-                        <Contact />
-                      </Route>
-                      <Route>
-                        <Notfound />
-                      </Route>
-                    </Switch>
-                  </div>
-                  <Footer />
-                </Grid>
-              </Grid>
-              <MessengerCustomerChat
-                pageId="108949620688467"
-                appId="1121879694996668"
-              />
-            </Container>
-          </Router>
-        </ThemeProvider>
+                <MessengerCustomerChat
+                  pageId="108949620688467"
+                  appId="1121879694996668"
+                />
+              </Container>
+            </Router>
+          </ThemeProvider>
+        </>
       )}
     </>
   );

@@ -112,12 +112,13 @@ function RunExcute({ handleExcute, isMobile }) {
   };
 
   useKey("ctrlz", () => setOpenT(true));
-  console.log(runCm);
+
   return (
     <>
       <Grid container item className={styles.container}>
         <Grid container xs={1} item className={styles.topHeader}>
           <SiVisualstudiocode className={styles.logoVs} />
+
           <Grid className={styles.topMenu}>
             {dataFileTopVscode.map((menu, i) => {
               return (
@@ -246,10 +247,12 @@ function RunExcute({ handleExcute, isMobile }) {
 
                 <Grid className={styles.primsmCode}>
                   {fileId === 1 ? (
-                    <VisualRun
-                      language="javascript"
-                      handleExcute={handleExcute}
-                    />
+                    <>
+                      <VisualRun
+                        language="javascript"
+                        handleExcute={handleExcute}
+                      />
+                    </>
                   ) : (
                     <VisualCSS />
                   )}

@@ -214,6 +214,7 @@ function Resume({ theme }) {
                           </Typography>
                         </>
                       )}
+
                       {project.linkgit ? (
                         <GithubLink link={project.linkgit} />
                       ) : (
