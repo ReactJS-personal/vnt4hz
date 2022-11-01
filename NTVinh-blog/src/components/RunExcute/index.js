@@ -28,6 +28,7 @@ import {
   dataFileTopVscode,
   dataTerminal,
 } from "../../contants/topFileVscode";
+import GridAnimated from "../AnimationPoint/GridAnimated";
 import useKey from "../hooks/useKey";
 import styles from "./styles.module.css";
 import VisualCSS from "./VisualCSS";
@@ -113,6 +114,9 @@ function RunExcute({ handleExcute, isMobile }) {
 
   useKey("ctrlz", () => setOpenT(true));
 
+  const listEmoji = [".", "👻", "", "⛄", "»", "→"];
+  const randomEmoji = Math.floor(Math.random() * listEmoji.length);
+  console.log("âsas", listEmoji[randomEmoji]);
   return (
     <>
       <Grid container item className={styles.container}>
@@ -162,6 +166,7 @@ function RunExcute({ handleExcute, isMobile }) {
           </Grid>
         </Grid>
         <Grid container item xs={11} className={styles.center}>
+          <GridAnimated emoji={listEmoji[randomEmoji]} w={"400px 200px"} />
           <Grid
             item
             xs={1}

@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+
 }
 
 .topHeader {
@@ -12,6 +14,8 @@
     min-width: 100vw;
     max-height: 40px;
     display: flex;
+    position: relative;
+    z-index: 9999999;
 }
 
 .left {
@@ -22,6 +26,8 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    position: relative;
+    z-index: 9999999;
 }
 
 .wrapIcon {
@@ -90,6 +96,7 @@
     flex: 1;
     color: #fff;
     margin-left: 20px;
+    position: relative;
 }
 
 .topClose {
@@ -107,6 +114,8 @@
 .collapseCode {
     background-color: #282A36;
     width: 130px;
+    position: relative;
+    z-index: 999;
 }
 
 .topFile {
@@ -192,6 +201,8 @@
 
 .paddingR {
     padding-right: 14px;
+    position: relative;
+    z-index: 9999;
 }
 
 .removeClass {
@@ -339,6 +350,8 @@ pre[class*="language-"] {
     max-height: 85px;
     align-items: center;
     padding-bottom: 10px;
+    position: relative;
+    z-index: 9999;
 }
 
 .terminalFile {

@@ -71,7 +71,7 @@ function App() {
           <ThemeProvider theme={themeMode} isMobile={mobile}>
             <Router>
               <Container className={"ctn_top"}>
-                <GridAnimated />
+                <GridAnimated w={"280px 280px"} emoji={""} />
                 <Grid container spacing={7}>
                   <ScrollToTop showBelow={280} />
                   <Grid item lg={3} md={4} xs={12} sm={12}>

@@ -15,7 +15,7 @@ const Container = styled.div`
   user-select: none;
 `;
 
-const Cell = ({ mouseX, mouseY }) => {
+const Cell = ({ mouseX, mouseY, emoji }) => {
   const [position, setPosition] = useState([0, 0]);
   const ref = useRef(null);
 
@@ -27,8 +27,8 @@ const Cell = ({ mouseX, mouseY }) => {
     // center y coordinate
     const y = rect.top + CELL_SIZE / 2;
     setPosition([x, y]);
-  }, [ref.current]);
-
+  }, []);
+  let isEmoji = Math.random() < 0.5;
   const direction = useTransform([mouseX, mouseY], ([newX, newY]) => {
     const diffY = newY - position[1];
     const diffX = newX - position[0];
@@ -38,7 +38,9 @@ const Cell = ({ mouseX, mouseY }) => {
   });
   return (
     <Container ref={ref}>
-      <motion.div style={{ rotate: direction }}>vdz</motion.div>
+      <motion.div style={{ rotate: direction }}>
+        {isEmoji ? emoji : ""}
+      </motion.div>
     </Container>
   );
 };

@@ -7,7 +7,7 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 
 import Cell, { CELL_SIZE } from "./Cell";
 
@@ -22,14 +22,14 @@ const Container = styled(motion.div)`
   grid-template-columns: repeat(${(props) => props.columns}, 1fr);
   mask-repeat: no-repeat;
   mask-image: radial-gradient(
-    250px 250px,
+    ${(props) => props.w},
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0.4),
     transparent
   );
 `;
 
-function GridAnimated(props) {
+function GridAnimated({ w, emoji }) {
   const [columns, setColumns] = useState(0);
   const [rows, setRows] = useState(0);
 
@@ -112,12 +112,12 @@ function GridAnimated(props) {
     };
   }, []);
   return (
-    <Container columns={columns} style={{ opacity, WebkitMaskPosition }}>
+    <Container columns={columns} style={{ opacity, WebkitMaskPosition }} w={w}>
       {Array.from({ length: columns * rows }).map((_, i) => (
-        <Cell key={i} mouseX={mouseX} mouseY={mouseY} />
+        <Cell key={i} mouseX={mouseX} mouseY={mouseY} emoji={emoji} />
       ))}
     </Container>
   );
 }
 
-export default GridAnimated;
+export default memo(GridAnimated);
