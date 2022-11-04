@@ -114,9 +114,9 @@ function RunExcute({ handleExcute, isMobile }) {
 
   useKey("ctrlz", () => setOpenT(true));
 
-  const listEmoji = [".", "👻", "", "⛄", "»", "→"];
+  const listEmoji = [".", "👻", "", "⛄", "→", "❄️", "🌸"];
   const randomEmoji = Math.floor(Math.random() * listEmoji.length);
-  console.log("âsas", listEmoji[randomEmoji]);
+
   return (
     <>
       <Grid container item className={styles.container}>

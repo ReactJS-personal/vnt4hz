@@ -2,6 +2,7 @@
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
 }
+
 .content_about-me {
   color: rgb(2, 32, 29);
   line-height: 26px !important;
@@ -17,11 +18,13 @@
 .timeline-date {
   color: rgb(145, 139, 139);
   margin-top: -20px !important;
-
+  font-size: 14px;
   user-select: none;
-  -moz-user-select: none; /* Old versions of Firefox */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
   -ms-user-select: none;
-  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-touch-callout: none;
+  /* iOS Safari */
   -webkit-user-select: none;
 }
 
@@ -33,6 +36,7 @@
 .timeline-date_timer__iconEarth {
   margin: 0 2px;
 }
+
 .timeline-date_timer__iconArrowTop {
   font-size: 16px;
 }
@@ -80,27 +84,34 @@
   margin-bottom: 20px;
   position: relative;
 }
+
 .svgEffect {
   position: relative;
   top: -10px;
 }
+
 @keyframes svgEffect {
   10% {
     width: 10px;
   }
+
   30% {
     width: 30px;
   }
+
   50% {
     width: 50px;
   }
+
   70% {
     width: 70px;
   }
+
   100% {
     width: 80px;
   }
 }
+
 @keyframes glissement {
   from {
     margin-left: 100%;
@@ -112,10 +123,11 @@
     width: 100%;
   }
 }
+
 .signalture {
   display: flex !important;
   justify-content: flex-end !important;
-  color: rgb(148, 148, 148) !important ;
+  color: rgb(148, 148, 148) !important;
   position: relative;
 }
 
@@ -152,6 +164,7 @@
   text-align: center;
   background-color: rgb(250, 248, 248);
   border-radius: 5px;
+  min-height: 160px;
 }
 
 .service .service_title {
@@ -160,6 +173,7 @@
   font-weight: 550 !important;
   line-height: 35px !important;
   color: #1f1e1e;
+  user-select: none;
 }
 
 .service .service_desc {
@@ -169,7 +183,8 @@
   color: #8a8a8a;
   margin-bottom: 5px;
   user-select: none;
-  -moz-user-select: none; /* Old versions of Firefox */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
   -ms-user-select: none;
   -webkit-user-select: none;
   font-weight: 550;
@@ -197,10 +212,12 @@
   background-color: rgb(252, 102, 102);
   top: -3px;
   user-select: none;
-  -moz-user-select: none; /* Old versions of Firefox */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
   -ms-user-select: none;
   -webkit-user-select: none;
 }
+
 .service .service_mildstress {
   font-size: 10px !important;
   color: #fff;
@@ -216,10 +233,12 @@
   position: relative !important;
   top: -4px;
   user-select: none;
-  -moz-user-select: none; /* Old versions of Firefox */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
   -ms-user-select: none;
   -webkit-user-select: none;
 }
+
 /* end service */
 
 /* skill */
@@ -230,6 +249,7 @@
   height: 100%;
   min-height: 18px;
   box-shadow: 0px 0px 48px 0px rgba(4, 6, 4, 0.08) !important;
+  min-height: 160px;
 }
 
 .skill .skill_title {
@@ -259,6 +279,7 @@
   font-size: 28px;
   color: var(--main-color) !important;
 }
+
 .skill_tlt {
   border-bottom: 2px solid var(--main-color);
   border-radius: 2px;
@@ -270,6 +291,7 @@
   transition: all 0.1s ease-in-out;
   display: inline-block !important;
 }
+
 /* end skill */
 
 /* contact form and infor*/
@@ -278,10 +300,11 @@
   font-size: 16px !important;
 }
 
-.contact > span {
+.contact>span {
   color: rgb(26, 12, 3);
   font-size: 18px;
 }
+
 .contact_infor_container {
   margin-right: 10px !important;
   font-size: 16px !important;
@@ -338,6 +361,7 @@
   animation: shrink 1s linear 0s infinite alternate;
   font-size: 20px;
 }
+
 @-webkit-keyframes shrink {
   0% {
     -moz-transform: scale(1);
@@ -346,6 +370,7 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   100% {
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
@@ -354,6 +379,7 @@
     transform: scale(0.8);
   }
 }
+
 @-moz-keyframes shrink {
   0% {
     -moz-transform: scale(1);
@@ -362,6 +388,7 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   100% {
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
@@ -370,6 +397,7 @@
     transform: scale(0.8);
   }
 }
+
 @-ms-keyframes shrink {
   0% {
     -moz-transform: scale(1);
@@ -378,6 +406,7 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   100% {
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
@@ -386,6 +415,7 @@
     transform: scale(0.8);
   }
 }
+
 @-o-keyframes shrink {
   0% {
     -moz-transform: scale(1);
@@ -394,6 +424,7 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   100% {
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);
@@ -402,6 +433,7 @@
     transform: scale(0.8);
   }
 }
+
 @keyframes shrink {
   0% {
     -moz-transform: scale(1);
@@ -410,6 +442,7 @@
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   100% {
     -moz-transform: scale(0.8);
     -o-transform: scale(0.8);

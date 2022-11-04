@@ -13,6 +13,7 @@ import {
   Tabs,
   Typography,
 } from "@material-ui/core";
+import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import VinhdzLoading from "../../components/hooks/VLoading";
 import DataPfl from "../../tiul/DataPft";
@@ -68,7 +69,9 @@ function PortFLO() {
             label="ALL"
             value="ALL"
             className={
-              tabValue === "ALL" ? "customTab_item active" : "customTab_item"
+              tabValue === "ALL"
+                ? clsx("customTab_item active", "tab_ctn")
+                : clsx("customTab_item", "tab_ctn")
             }
           />
           {[

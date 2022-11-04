@@ -23,7 +23,7 @@ import reactVflix from "../assets/images/reactVflix.png";
 import reactWork from "../assets/images/reactWork.png";
 import tracker from "../assets/images/tracker.png";
 import vinhstagram from "../assets/images/vinhstagram.png";
-import cybersoft from "../assets/workexperience/cybersoft.jpg";
+// import cybersoft from "../assets/workexperience/cybersoft.jpg";
 import isb from "../assets/workexperience/isb.jpg";
 import ts from "../assets/workexperience/ts.jpg";
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -128,22 +128,25 @@ export default {
       title: "ISB Vietnam Co,. Limited",
       avatar: isb,
       time: "May 2019 - Jun 2019 · 2 mos",
+      desc: "Technical:  .net, c#, WPF,...",
     },
     {
       title: "Freelance developer",
       avatar: react,
       time: "Aug 2019 - Oct 2019 · 3 mos",
+      desc: "Technical:  javascript, react, MUI, tailwind, styled-component,...",
     },
-    {
-      title: "Cybersoft Academy",
-      avatar: cybersoft,
-      time: "May 2020 - Nov 2020 · 7 mos",
-    },
+    // {
+    //   title: "Cybersoft Academy",
+    //   avatar: cybersoft,
+    //   time: "May 2020 - Nov 2020 · 7 mos",
+    // },
     {
       title: "Thuocsi.vn",
       time: "Present",
       avatar: ts,
       avatarFrameWork: <GiPositionMarker />,
+      desc: "Technical:  nextJS, react, MUI, api, zustand, e2e testing. \n\n Flow: Agile scrum, jira management tool,...",
     },
   ],
   ProfileIcon: [

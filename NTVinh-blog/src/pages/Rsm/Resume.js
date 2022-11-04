@@ -7,6 +7,7 @@ import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { BsArrowUp, BsHash } from "react-icons/bs";
 import { GoRepo } from "react-icons/go";
@@ -241,8 +242,15 @@ function Resume({ theme }) {
                       <Typography className="timeline-tlt">
                         {project.title}
                       </Typography>
-                      <Typography className="timeline-date" variant="caption">
+                      <Typography
+                        className="timeline-date"
+                        style={{ fontSize: "11px" }}
+                        variant="caption"
+                      >
                         {project.time}
+                      </Typography>
+                      <Typography className="timeline-desc">
+                        {project.desc}
                       </Typography>
                       <Box className="FrameWork">
                         <Avatar
@@ -297,29 +305,34 @@ function Resume({ theme }) {
           <Grid container spacing={3} justify="space-around">
             {DataPft.MyHobbies.map((hobbie, key) => (
               <Grid item xs={12} sm={6} md={3} key={key}>
-                <div className="service">
-                  <Icon className="service_icon">{hobbie.icon}</Icon>
-                  <Typography className="service_title" variant="h6">
-                    {hobbie.title}
-                  </Typography>
-                  <Typography className="service_desc" variant="body2">
-                    {hobbie.desc}
-                  </Typography>
-                  {hobbie.stress ? (
-                    <Typography
-                      className={
-                        hobbie.maxstress
-                          ? "service_maxstress"
-                          : "service_mildstress"
-                      }
-                      variant="button"
-                    >
-                      {hobbie.stress}
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <div className="service">
+                    <Icon className="service_icon">{hobbie.icon}</Icon>
+                    <Typography className="service_title" variant="h6">
+                      {hobbie.title}
                     </Typography>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                    <Typography className="service_desc" variant="body2">
+                      {hobbie.desc}
+                    </Typography>
+                    {hobbie.stress ? (
+                      <Typography
+                        className={
+                          hobbie.maxstress
+                            ? "service_maxstress"
+                            : "service_mildstress"
+                        }
+                        variant="button"
+                      >
+                        {hobbie.stress}
+                      </Typography>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </motion.div>
               </Grid>
             ))}
           </Grid>
@@ -335,24 +348,26 @@ function Resume({ theme }) {
           <Grid container justify="space-between" spacing={3}>
             {DataPft.mySkills.map((skill, key) => (
               <Grid item xs={12} sm={6} md={3} key={key}>
-                <Paper elevation={0} className="skill">
-                  <Typography variant="h6" className="skill_title">
-                    {skill.title}
-                  </Typography>
-                  {skill.desc.map((item, key) => (
-                    <Typography
-                      variant="body2"
-                      className="skill_desc"
-                      key={key}
-                    >
-                      <TimelineDot
-                        variant={"outlined"}
-                        className="timeline_dot"
-                      />
-                      {item}
+                <motion.div whileHover={{ scale: 1.2 }}>
+                  <Paper elevation={0} className="skill">
+                    <Typography variant="h6" className="skill_title">
+                      {skill.title}
                     </Typography>
-                  ))}
-                </Paper>
+                    {skill.desc.map((item, key) => (
+                      <Typography
+                        variant="body2"
+                        className="skill_desc"
+                        key={key}
+                      >
+                        <TimelineDot
+                          variant={"outlined"}
+                          className="timeline_dot"
+                        />
+                        {item}
+                      </Typography>
+                    ))}
+                  </Paper>
+                </motion.div>
               </Grid>
             ))}
           </Grid>
