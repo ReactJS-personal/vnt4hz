@@ -39,7 +39,7 @@ function Blog() {
     }, 222200);
   };
 
-  const URL = "https://www.youtube.com/watch?v=CskQGX4Gc94";
+  const URL = "https://www.youtube.com/watch?v=3VTkBuxU4yk";
 
   return loading ? (
     <VinhdzLoading />
@@ -47,7 +47,7 @@ function Blog() {
     <>
       <div className="blog">
         {/* <div className="blog" style={{border:`2px solid ${borderbg}`, transition:'all .3s ease-in'}}></div> */}
-        <h1 className="tltBlog">My blog at : vinhblog.xyz</h1>
+        {/* <h1 className="tltBlog">My blog at : https://vdzblog.xyz/</h1> */}
         <Button
           className="btnbLog"
           variant="contained"
