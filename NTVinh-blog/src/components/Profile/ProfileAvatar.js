@@ -22,7 +22,7 @@ import heartStories from "../../assets/sounds/heartStories.mp3";
 import likeStories from "../../assets/sounds/likeStories.wav";
 import storiesOpen from "../../assets/sounds/storiesOpen.mp3";
 import { useLocalStorage } from "../../components/hooks/useLocalStorage";
-import DataPft from "../../tiul/DataPft";
+import DataPft from "../../utils/DataPft";
 import "./ProfileAvatar.css";
 import Progress from "./Progress";
 

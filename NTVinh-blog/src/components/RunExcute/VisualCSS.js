@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Prism from "prismjs";
 import React, { useEffect } from "react";
-import { SCSSparse } from "../../tiul/Prism";
+import { SCSSparse } from "../../utils/Prism";
 
 function VisualCSS() {
   useEffect(() => {

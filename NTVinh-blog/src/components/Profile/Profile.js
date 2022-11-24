@@ -7,7 +7,7 @@ import TimelineItem from "@material-ui/lab/TimelineItem";
 import React, { useEffect, useState } from "react";
 import { FaFacebookMessenger } from "react-icons/fa";
 import { GoVerified } from "react-icons/go";
-import DataPft from "../../tiul/DataPft";
+import DataPft from "../../utils/DataPft";
 import BtnLike from "../hooks/BtnLike/BtnLike";
 import BtnProfile from "../hooks/BtnProfile/BtnProfile";
 import Linkcontact from "../Linkcontact/Linkcontact";

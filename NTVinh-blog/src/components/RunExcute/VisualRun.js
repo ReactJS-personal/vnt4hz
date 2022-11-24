@@ -6,7 +6,11 @@ import { motion } from "framer-motion";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import React, { useEffect } from "react";
-import { JSparse } from "../../tiul/Prism";
+import colors from "../../themes/components/colors";
+import Heading from "../../themes/components/Heading";
+import HighlightText from "../../utils/HighlightText";
+import { JSparse } from "../../utils/Prism";
+import Sparkles from "../Sparkles";
 import styles from "./styles.module.css";
 
 function VisualRun({ handleExcute, isMobile }) {
@@ -46,6 +50,7 @@ function VisualRun({ handleExcute, isMobile }) {
         >
          
         </Button> */}
+
         <Button
           className={clsx(styles.btnVdz, load && styles.btnRunning)}
           onClick={handleGotoVdz}
@@ -59,7 +64,25 @@ function VisualRun({ handleExcute, isMobile }) {
               className={styles.loadCir}
             />
           ) : (
-            "Run code 🤖"
+            <Sparkles enabled>
+              <Heading
+                as="p"
+                variant="h3"
+                style={{
+                  color: colors.heading,
+                  fontSize: "14px",
+                  marginBottom: "0",
+                }}
+              >
+                <HighlightText
+                  direction="bottom"
+                  stopOne={`${colors.pink30}`}
+                  stopTwo={`${colors.purple40}`}
+                >
+                  Run code 🤖
+                </HighlightText>
+              </Heading>
+            </Sparkles>
           )}
         </Button>
       </motion.div>

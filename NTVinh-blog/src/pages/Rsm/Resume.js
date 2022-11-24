@@ -21,7 +21,7 @@ import BtnLike from "../../components/hooks/BtnLike/BtnLike";
 import VinhdzLoading from "../../components/hooks/VLoading";
 import Gmation from "../../components/svgDesign/Gmation";
 import TimeL from "../../components/TimeLine/TimeL";
-import DataPft from "../../tiul/DataPft";
+import DataPft from "../../utils/DataPft";
 import "./Resume.css";
 //date
 // import { formatDistance } from 'date-fns';

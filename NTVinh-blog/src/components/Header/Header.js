@@ -7,8 +7,9 @@ import useSound from "use-sound";
 import hoverSound from "../../assets/sounds/hoverSound.mp3";
 import modeOff from "../../assets/sounds/modeOff.mp3";
 import modeOn from "../../assets/sounds/modeOn.mp3";
-import DataPfl from "../../tiul/DataPft";
+import DataPfl from "../../utils/DataPft";
 import ScrollProgress from "../HeaderProgress";
+import Sparkles from "../Sparkles";
 import ToggleDarkMode from "../ToggleDarkMode";
 import "./Header.css";
 
@@ -76,12 +77,16 @@ function Header(props) {
               >
                 &lt;
               </span>
-              <span className={scrollNav === false ? "" : "LogoHide"}>N</span>
-              <span className={scrollNav === false ? "" : "LogoHide"}>T </span>
-              <span className={scrollNav ? "handleLogoCl" : ""}>V</span>
-              <span className={scrollNav ? "handleLogoCl" : ""}>i</span>
-              <span className={scrollNav ? "handleLogoCl" : ""}>n</span>
-              <span className={scrollNav ? "handleLogoCl" : ""}>h</span>
+              <Sparkles enabled>
+                <span className={scrollNav === false ? "" : "LogoHide"}>N</span>
+                <span className={scrollNav === false ? "" : "LogoHide"}>
+                  T{" "}
+                </span>
+                <span className={scrollNav ? "handleLogoCl" : ""}>V</span>
+                <span className={scrollNav ? "handleLogoCl" : ""}>i</span>
+                <span className={scrollNav ? "handleLogoCl" : ""}>n</span>
+                <span className={scrollNav ? "handleLogoCl" : ""}>h</span>
+              </Sparkles>
               <span
                 className={
                   scrollNav ? "handleLogoScroll handleLogoCl" : "LogoHide"

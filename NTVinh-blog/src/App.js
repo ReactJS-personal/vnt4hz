@@ -1,7 +1,7 @@
 import { Container, Grid } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import useMobileDetect from "./components/hooks/useMobile";
-import screenOrientation from "./tiul/sreenOrientation";
+import screenOrientation from "./utils/sreenOrientation";
 // import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //chat mess

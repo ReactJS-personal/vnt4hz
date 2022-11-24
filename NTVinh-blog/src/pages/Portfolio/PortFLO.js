@@ -16,7 +16,7 @@ import {
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import VinhdzLoading from "../../components/hooks/VLoading";
-import DataPfl from "../../tiul/DataPft";
+import DataPfl from "../../utils/DataPft";
 //css
 import "./PortFLO.css";
 

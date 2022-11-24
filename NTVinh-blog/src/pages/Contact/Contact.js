@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { IoIosSend } from "react-icons/io";
 //load
 import Loader from "react-loader-spinner";
-import DataPft from "../../tiul/DataPft";
+import DataPft from "../../utils/DataPft";
 //css
 import "./Contact.css";
 
