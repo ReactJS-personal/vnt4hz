@@ -114,4 +114,91 @@
   background-color: red;
 }
 
+.wrapPinned {
+  padding: 20px 0px;
+}
+
+.titlePinned p {
+  color: #c9d1d9;
+  text-transform: capitalize;
+}
+
+.cardProject {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 10px !important;
+
+}
+
+.paper {
+  background-color: transparent;
+}
+
+.cardTitle a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.cardTitle div {
+  margin-left: 10px;
+}
+
+.wrapCardTitle {
+  display: flex;
+}
+
+.lang {
+  display: flex;
+
+}
+
+.star {
+  display: flex;
+  align-items: center;
+  margin-left: 16px !important;
+}
+
+.fork {
+  display: flex;
+  align-items: center;
+  margin-left: 16px !important;
+}
+
+.lang svg {
+  font-size: 20px;
+  margin-top: 6px;
+  margin-left: -4px;
+}
+
+.vdz-projectInfo {
+  display: flex;
+  color: #8b949e
+}
+
+.public {
+  border: 1px solid #30363d;
+  white-space: nowrap !important;
+  vertical-align: baseline !important;
+  border-radius: 2em;
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 12px !important;
+  padding: 0px 6px;
+  color: #8b949e;
+}
+
+.nameProject {
+  color: var(--main-color);
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  font-weight: 600 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important
+}
+
+.content {
+  color: #8b949e;
+  min-height: 24px;
+}
+
 /* end dialog */

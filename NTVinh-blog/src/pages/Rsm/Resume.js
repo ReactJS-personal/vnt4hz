@@ -16,12 +16,18 @@ import { ImEarth } from "react-icons/im";
 import { RiSettings4Fill } from "react-icons/ri";
 import Loader from "react-loader-spinner";
 import Typist from "react-typist";
+import styled from "styled-components";
+import { map } from "styled-components-breakpoint";
+import { mb } from "styled-components-spacing";
 import GithubLink from "../../components/Customlink/ReponsitoriesLink";
 import BtnLike from "../../components/hooks/BtnLike/BtnLike";
 import VinhdzLoading from "../../components/hooks/VLoading";
 import Gmation from "../../components/svgDesign/Gmation";
 import TimeL from "../../components/TimeLine/TimeL";
+import colors from "../../themes/components/colors";
+import Heading from "../../themes/components/Heading";
 import DataPft from "../../utils/DataPft";
+import HighlightText from "../../utils/HighlightText";
 import "./Resume.css";
 //date
 // import { formatDistance } from 'date-fns';
@@ -40,6 +46,47 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10px",
   },
 }));
+
+const HeroContainer = styled.div`
+  display: flex;
+  flex-grow: 1;
+  ${map(
+    {
+      mobile: "100%",
+      tablet: "auto",
+      desktop: "auto",
+    },
+    (size) => `width: ${size};`
+  )}
+  ${map(
+    {
+      mobile: "100%",
+      tablet: "512px",
+      desktop: "768px",
+    },
+    (size) => `max-width: ${size};`
+  )}
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${mb(3)};
+  position: relative;
+`;
+
+const CardWrapper = styled.div`
+  position: relative;
+`;
+
+const CardShadow = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 3px;
+  left: 3px;
+  border-radius: 4px;
+`;
 
 function Resume({ theme }) {
   const classes = useStyles();
@@ -308,12 +355,29 @@ function Resume({ theme }) {
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
+                  style={{ position: "relative" }}
                 >
                   <div className="service">
                     <Icon className="service_icon">{hobbie.icon}</Icon>
-                    <Typography className="service_title" variant="h6">
-                      {hobbie.title}
-                    </Typography>
+                    <Heading
+                      as="p"
+                      variant="p"
+                      style={{
+                        color: colors.teal40,
+                        fontSize: "16px",
+                        fontWeight: 700,
+                      }}
+                    >
+                      <HighlightText
+                        stopOne={`${colors.blue30}`}
+                        stopTwo={`${colors.teal40}`}
+                      >
+                        {hobbie.title}
+                      </HighlightText>
+                    </Heading>
+                    {/* <Typography className="service_title" variant="h6"> */}
+
+                    {/* </Typography> */}
                     <Typography className="service_desc" variant="body2">
                       {hobbie.desc}
                     </Typography>
@@ -332,6 +396,17 @@ function Resume({ theme }) {
                       ""
                     )}
                   </div>
+                  {theme === "dark" ? (
+                    <CardShadow
+                      style={{
+                        background:
+                          "linear-gradient(68.18deg, #80DBFF 0.54%, #52BFFF 99.37%)",
+                        zIndex: "9",
+                      }}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </motion.div>
               </Grid>
             ))}

@@ -414,6 +414,8 @@ pre[class*="language-"] {
     width: 100%;
     display: flex;
     border-top: 1px solid rgba(149, 128, 255, 0.9);
+    position: relative;
+    z-index: 99;
 }
 
 .fileMobileRun {

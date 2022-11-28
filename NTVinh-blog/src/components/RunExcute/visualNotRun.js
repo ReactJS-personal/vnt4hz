@@ -4,6 +4,10 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import clsx from "clsx";
 import React from "react";
 import { SiVisualstudiocode } from "react-icons/si";
+import colors from "../../themes/components/colors";
+import Heading from "../../themes/components/Heading";
+import HighlightText from "../../utils/HighlightText";
+import Sparkles from "../Sparkles";
 import styles from "./styles.module.css";
 
 function VisualNotRun({ handleExcute, isMobile }) {
@@ -62,7 +66,20 @@ function VisualNotRun({ handleExcute, isMobile }) {
                   className={styles.loadCir}
                 />
               ) : (
-                "Run code 🤖"
+                <Sparkles enabled>
+                  <Heading
+                    as="p"
+                    variant="h3"
+                    style={{ fontSize: "14px", marginBottom: "0" }}
+                  >
+                    <HighlightText
+                      direction="bottom"
+                      stopOne={`${colors.blue30}`}
+                    >
+                      Run code 🤖
+                    </HighlightText>
+                  </Heading>
+                </Sparkles>
               )}
             </Button>
           </>

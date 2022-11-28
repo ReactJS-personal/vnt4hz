@@ -76,7 +76,7 @@ function VisualRun({ handleExcute, isMobile }) {
               >
                 <HighlightText
                   direction="bottom"
-                  stopOne={`${colors.pink30}`}
+                  stopOne={`${colors.blue30}`}
                   stopTwo={`${colors.purple40}`}
                 >
                   Run code 🤖

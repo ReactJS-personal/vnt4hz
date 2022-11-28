@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -13,10 +14,17 @@ import {
   Tabs,
   Typography,
 } from "@material-ui/core";
+import axios from "axios";
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
+import { BiGitRepoForked, BiGridVertical, BiStar } from "react-icons/bi";
+import { GoPrimitiveDot } from "react-icons/go";
+import { VscRepo } from "react-icons/vsc";
+import { v4 as uuidv4 } from "uuid";
 import VinhdzLoading from "../../components/hooks/VLoading";
+import { URL_API_PINNED_PROJECT } from "../../utils/api";
 import DataPfl from "../../utils/DataPft";
+
 //css
 import "./PortFLO.css";
 
@@ -24,6 +32,7 @@ function PortFLO() {
   const [tabValue, setTabvalue] = useState("ALL");
   const [projectDialog, setProjectdialog] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [dataProject, setDataProject] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,6 +40,16 @@ function PortFLO() {
     }, 500);
   }, []);
 
+  useEffect(() => {
+    try {
+      axios.get(URL_API_PINNED_PROJECT).then((data) => setDataProject(data));
+    } catch (error) {
+      throw new Error(error);
+      // console.log(error)
+    }
+  }, []);
+  const { data = [] } = dataProject || {};
+  // console.log(data);
   return loading ? (
     <VinhdzLoading />
   ) : (
@@ -56,9 +75,78 @@ function PortFLO() {
           ></path>
         </svg>
       </Grid>
+      <Grid item xs={12} className="wrapPinned">
+        <Grid item xs={12} className="titlePinned">
+          <Typography>pinned</Typography>
+        </Grid>
 
+        <Grid item container style={{ position: "relative", zIndex: 99 }}>
+          {data?.map((project) => (
+            <Grid item xs={12} lg={6} className="cardProject" key={uuidv4()}>
+              <Grid
+                item
+                direction="row"
+                className="wrapCardTitle"
+                alignItems="center"
+                justify="space-between"
+              >
+                <Grid
+                  style={{ display: "flex" }}
+                  item
+                  alignItems="center"
+                  className="cardTitle"
+                >
+                  <VscRepo style={{ color: "  #8b949e ", fontSize: "18px" }} />
+                  <a
+                    className="nameProject"
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >{`${project.owner}/${project.repo}`}</a>
+                  <Box className="public">Public</Box>
+                </Grid>
+                <BiGridVertical
+                  style={{
+                    color: "#8b949e",
+                    cursor: "pointer",
+                  }}
+                />
+              </Grid>
+
+              <Grid style={{ marginTop: "6px" }}>
+                <Box className="content">{project.description}</Box>
+                <Grid
+                  container
+                  item
+                  alignItems="center"
+                  className="vdz-projectInfo"
+                >
+                  <Grid item alignItems="center" className="lang">
+                    <GoPrimitiveDot
+                      style={{ color: project.languageColor || "#8b949e" }}
+                    />
+                    <Typography>{project.language}</Typography>
+                  </Grid>
+                  <Grid item alignItems="center" className="star">
+                    <BiStar />
+                    <Typography>{project.stars}</Typography>
+                  </Grid>
+                  <Grid item alignItems="center" className="fork">
+                    {project.forks ? (
+                      <>
+                        <BiGitRepoForked />
+                        <Typography>{project.forks}</Typography>{" "}
+                      </>
+                    ) : null}
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
       {/* tabs dialog */}
-      <Grid item xs={12}>
+      <Grid item xs={12} style={{ marginTop: "40px" }}>
         <Tabs
           value={tabValue}
           indicatorColor="primary"
@@ -129,7 +217,6 @@ function PortFLO() {
           ))}
         </Grid>
       </Grid>
-
       <Dialog
         open={projectDialog}
         onClose={() => setProjectdialog(false)}
