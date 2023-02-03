@@ -1,0 +1,48 @@
+.your_heath {
+    border-radius: 6px;
+    background-color: #242526;
+    margin-top: 10px !important;
+    padding: 4px;
+    color: aliceblue;
+}
+
+.wrapHeathType {
+    width: 100%;
+    padding: 6px;
+}
+
+.wrapHeathType p {
+    margin: 0px 0px 4px 8px;
+}
+
+.wrapHeathType svg {
+    color: #FA6F9D;
+}
+
+.wrapHeathType:hover {
+    background-color: rgb(47, 47, 47);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.wrapInputH {
+    padding: 4px;
+    width: 60%;
+    border: 1px solid #ce3df2 !important;
+    box-shadow: 0 6px 6px -2px #c029f066;
+    margin-bottom: 4px;
+    border-radius: 16px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.wrapInputH input {
+    width: inherit;
+    border-radius: 12px;
+    outline: none;
+    padding-left: 8px;
+    color: aliceblue;
+    border: none;
+    background-color: transparent;
+
+}

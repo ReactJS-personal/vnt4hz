@@ -129,6 +129,8 @@
   justify-content: flex-end !important;
   color: rgb(148, 148, 148) !important;
   position: relative;
+  font-family: 'Cedarville Cursive', cursive !important;
+  font-size: 20px !important;
 }
 
 .loadSignal {

@@ -65,7 +65,7 @@ export default {
   },
   about:
     "👏Hi: Welcome to my website, at here i will briefly describe myself and projects that I have done.\n\nI am NTVinh, can call me a FrontEnd developer, my daily work is listen music, play game, read book, social ,  drink coffee with friends,... but also that i spend much time every day for coding, to me it is like a little hobby every time i have free time. I often find solutions and small ideas and then develop them into the finished products so i also gradually improved my web development skills. My future goal is to become a Fullstack Developer, my favorite programming language is JAVASCRIPT because it is really magic. \n\nThank you for reading this.",
-  signature: "NT Vinh 🎅🏼 ",
+  signature: "VinhdZ",
   projects: [
     {
       btntext: "Go to ➜",

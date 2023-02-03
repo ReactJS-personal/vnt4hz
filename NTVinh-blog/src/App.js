@@ -17,6 +17,7 @@ import useKey from "./components/hooks/useKey";
 import Profile from "./components/Profile/Profile";
 import RunExcute from "./components/RunExcute";
 import ScrollToTop from "./components/ScrollTop/ScrollToTop";
+import UniverseStar from "./components/Universe/UniverseStar";
 import RouterScrollToTop from "./help/RouterScrollToTop";
 import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/Contact/Contact";
@@ -25,6 +26,7 @@ import PortFLO from "./pages/Portfolio/PortFLO";
 import Resume from "./pages/Rsm/Resume";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles/globalStyles";
 import { Usedarkmode } from "./styles/Usedarkmode";
+// import StarEffect from "./themes/Effect/StartEffect";
 
 function App() {
   const [theme, toggleTheme] = Usedarkmode();
@@ -34,7 +36,7 @@ function App() {
     setIsExcute(isExcute);
   };
   useKey("ctrlv", () => setIsExcute(false));
-
+  console.log("sd", window.location.pathname === "/blog");
   // check mobile
   const { isMobile } = useMobileDetect();
   const [mobile, setMobile] = useState(isMobile);
@@ -61,7 +63,7 @@ function App() {
   return (
     <>
       {/* <FmotionScroll /> */}
-
+      {/* <StarEffect /> */}
       {isExcute ? (
         <>
           <RunExcute handleExcute={handleExcute} isMobile={mobile} />
@@ -70,13 +72,16 @@ function App() {
         <>
           <ThemeProvider theme={themeMode} isMobile={mobile}>
             <Router>
-              <Container className={"ctn_top"}>
+              <Container
+                className={"ctn_top"}
+                style={{ position: "relative", zIndex: 999 }}
+              >
                 <GridAnimated w={"280px 280px"} emoji={""} />
+                <GlobalStyles />
                 <Grid container spacing={7}>
                   <ScrollToTop showBelow={280} />
                   <Grid item lg={3} md={4} xs={12} sm={12}>
                     <Profile theme={theme} />
-                    <GlobalStyles />
                   </Grid>
                   <Grid item xs>
                     <RouterScrollToTop />
@@ -108,6 +113,7 @@ function App() {
                   appId="1121879694996668"
                 />
               </Container>
+              <UniverseStar />
             </Router>
           </ThemeProvider>
         </>

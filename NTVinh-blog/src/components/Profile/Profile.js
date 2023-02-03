@@ -1,11 +1,11 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Grid, Typography } from "@material-ui/core";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import React, { useEffect, useState } from "react";
-import { FaFacebookMessenger } from "react-icons/fa";
+import { FaFacebookMessenger, FaRegHeart } from "react-icons/fa";
 import { GoVerified } from "react-icons/go";
 import DataPft from "../../utils/DataPft";
 import BtnLike from "../hooks/BtnLike/BtnLike";
@@ -15,6 +15,7 @@ import { ProfileSkeleton } from "../loadingSkeleton/ProfileSkeleton";
 import TimeL, { CustomTimeL } from "../TimeLine/TimeL";
 import "./Profile.css";
 import ProfileAvatar from "./ProfileAvatar";
+import styles from "./styles.module.css";
 
 const CstItemTimeL = ({ title, id, link }) => (
   <TimelineItem>
@@ -45,7 +46,6 @@ function Profile({ theme }) {
       setLoadingcontent(false);
     }, 1200);
   });
-
   return loadingContent ? (
     <ProfileSkeleton theme={theme} />
   ) : (
@@ -104,13 +104,25 @@ function Profile({ theme }) {
             {/* <Btn text={'Send message'} icon={<FaFacebookMessenger className="btn_messageIcon" />} /> */}
             {/* <Link to='/contact' >To</Link> */}
             <BtnProfile
-              icon={<FaFacebookMessenger className="btn_messageIcon" />}
+              icon={<FaFacebookMessenger />}
               path={"/contact"}
               textLink={"send message"}
             />
           </div>
         </div>
       </div>
+
+      <Grid container item xs={12} className={styles.your_heath}>
+        <Grid
+          style={{ display: "flex" }}
+          alignItems="center"
+          direction="row"
+          className={styles.wrapHeathType}
+        >
+          <FaRegHeart />
+          <Typography>type your domain</Typography>
+        </Grid>
+      </Grid>
     </>
   );
 }

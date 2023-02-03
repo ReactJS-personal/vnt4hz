@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive');
+
 :root {
   --main-color: #1093f3;
 }
+
 body {
   padding: 0 !important;
   /* overflow: auto !important;   */
@@ -32,22 +35,28 @@ body {
 *:focus {
   outline: none !important;
 }
+
 /* // container top */
 .ctn_top {
   margin-top: 50px;
 }
+
 .mb_20 {
   margin-bottom: 20px !important;
 }
+
 .p_20 {
   padding: 20px !important;
 }
+
 .pb_40 {
   padding-bottom: 40px !important;
 }
+
 .p_50 {
   padding: 50px !important;
 }
+
 .t_20 {
   margin-top: 20px !important;
 }
@@ -89,6 +98,7 @@ body {
   margin: 0;
   font-size: 18px;
 }
+
 .Sec-Tlt span {
   position: absolute;
   height: 10px;
@@ -116,10 +126,12 @@ body {
   background-color: #21242b;
   height: 15px;
 }
+
 .MuiLinearProgress-barColorPrimary {
   background-color: var(--main-color) !important;
 }
+
 /* chat mess */
-.plugin > svg {
+.plugin>svg {
   width: 40px !important;
 }

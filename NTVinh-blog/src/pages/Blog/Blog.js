@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillPauseCircle } from "react-icons/ai";
 import { GoPlay } from "react-icons/go";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import Particles from "react-particles-js";
+import Particles from "react-particles";
 import ReactPlayer from "react-player/youtube";
 import useSound from "use-sound";
 import soundOff from "../../assets/sounds/soundOff.mp3";
@@ -34,9 +34,9 @@ function Blog() {
   const handleMuted = () => {
     setMute(!mute);
     playSong();
-    setTimeout(() => {
-      setMute(false);
-    }, 222200);
+    // setTimeout(() => {
+    //   setMute(false);
+    // }, 222200);
   };
 
   const URL = "https://www.youtube.com/watch?v=3VTkBuxU4yk";
@@ -51,7 +51,7 @@ function Blog() {
         <Button
           className="btnbLog"
           variant="contained"
-          href="https://vdzblog.xyz/"
+          href="https://vinhdzblog.site/"
         >
           Move
           <HiArrowNarrowRight className="ArrowIcon" />

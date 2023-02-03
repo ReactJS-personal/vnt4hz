@@ -1,0 +1,50 @@
+.u3 {
+    transform: rotate3d(1, 1, 1, 200deg);
+    animation: spin 14s infinite linear;
+}
+
+.u2 {
+    transform: rotate3d(1, 1, 1, 162deg);
+    animation: bounce 10s infinite;
+}
+
+.u1 {
+    transform: rotate3d(1, 1, 1, 162deg);
+    animation: bounce 8s infinite;
+}
+
+.u4 {
+
+    animation: spin 14s infinite linear;
+}
+
+.uniText {
+    background: linear-gradient(30deg, #c850c0, #ffcc70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: .8;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -149,14 +149,14 @@ function Resume({ theme }) {
             <Loader
               className="loadSignal"
               type="ThreeDots"
-              color="#f0b026"
+              color="#1093f3"
               height={80}
               width={40}
               timeout={0}
             />
           ) : (
             <Typist cursor={{ show: false, hideWhenDone: true }}>
-              <Typist.Delay ms={500} />
+              <Typist.Delay ms={400} />
               <Typography className="signalture">
                 {DataPft.signature}
               </Typography>

@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
      //    box-shadow: ${({ theme }) => theme.resetBoxShadow}; 
     }
 
+    .cardProject {
+     border: ${({ theme }) => theme.borderCardProject}
+    }
+
     .avatar{
           border: 5px solid ${({ theme }) => theme.avatar};
           transition: all .9s linear;
@@ -265,4 +269,5 @@ export const darkTheme = {
   // header
   menuActive: "#1f2c3d !important",
   Logo: "#d9d9dd",
+  borderCardProject: "1px solid #30363d",
 };
