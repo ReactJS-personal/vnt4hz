@@ -152,11 +152,11 @@ export const GlobalStyles = createGlobalStyle`
 
    // service
    .service{
-     background-color:${({ theme }) => theme.btnLike};
+     background-color:${({ theme }) => theme.cardBg};
      transition: all .2s linear;
    }
    .skill{
-     background-color:${({ theme }) => theme.btnLike};
+     background-color:${({ theme }) => theme.cardBg};
      transition: all .2s linear;
    }
    .skill_tlt{
@@ -174,14 +174,14 @@ export const GlobalStyles = createGlobalStyle`
 
 //card
      .customCard{
-          background-color:${({ theme }) => theme.btnLike};
+          background-color:${({ theme }) => theme.cardBg};
           transition: all .2s linear !important;
      }
      .customTab_item{
           color:${({ theme }) => theme.text};
      }
      .custom_tabs{
-          background-color:${({ theme }) => theme.btnLike};
+          background-color:${({ theme }) => theme.cardBg};
           transition: all .2s linear !important;
      }
    //contact
@@ -199,7 +199,7 @@ export const GlobalStyles = createGlobalStyle`
    }
 
    .f-t{
-        background-color: ${({ theme }) => theme.footerBg};
+        background-color: ${({ theme }) => theme.bodycolorFB};
         border-top:  ${({ theme }) => theme.footerBorder};
         box-shadow: ${({ theme }) => theme.footerBorder}
    }
@@ -228,7 +228,7 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb {
      background: ${({ theme }) => theme.scroll};
      border-radius: 6px;
-     transition: all .2s linear !important; 
+     
    }
 
 
@@ -244,10 +244,10 @@ export const darkTheme = {
   zero: "0px",
   hidden: "none",
   mainBg: "#242526 !important",
-  body: "#18191a !important",
+  body: "#060b10 !important",
   text: "#fff !important",
   avatar: "#2e89ff !important",
-  bodycolorFB: "#242526 !important",
+  bodycolorFB: "#12181f !important",
   colortextFB: " rgb(199, 194, 194)",
   colorName: "#e4e6eb",
   colorIconContact: "#2acea4",
@@ -280,4 +280,5 @@ export const darkTheme = {
   menuActive: "#1f2c3d !important",
   Logo: "#d9d9dd",
   borderCardProject: "1px solid #30363d",
+  cardBg: "#1e242c",
 };
