@@ -10,7 +10,6 @@ module.exports = {
       },
     ],
     "@babel/preset-react",
-    ["@babel/preset-stage-2", { modules: false }],
   ],
   plugins: [
     "@babel/plugin-proposal-class-properties",

@@ -6,7 +6,7 @@ import screenOrientation from "./utils/sreenOrientation";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //chat mess
 import MessengerCustomerChat from "react-messenger-customer-chat";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 //dark theme and light theme
 import { ThemeProvider } from "styled-components";
 import "./App.css";
@@ -17,7 +17,6 @@ import useKey from "./components/hooks/useKey";
 import Profile from "./components/Profile/Profile";
 import RunExcute from "./components/RunExcute";
 import ScrollToTop from "./components/ScrollTop/ScrollToTop";
-import UniverseStar from "./components/Universe/UniverseStar";
 import RouterScrollToTop from "./help/RouterScrollToTop";
 import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/Contact/Contact";
@@ -113,7 +112,6 @@ function App() {
                   appId="1121879694996668"
                 />
               </Container>
-              <UniverseStar />
             </Router>
           </ThemeProvider>
         </>

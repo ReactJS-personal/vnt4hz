@@ -14,6 +14,7 @@ function UniverseStar() {
           pointerEvents: "none",
           width: "100%",
           height: "100%",
+          overflowX: "hidden",
         }}
       >
         <div
@@ -27,18 +28,6 @@ function UniverseStar() {
             alignItems: "center",
           }}
         >
-          <h2
-            style={{
-              margin: 0,
-              padding: 0,
-              fontSize: "3em",
-              fontWeight: 500,
-              letterSpacing: "-0.05em",
-            }}
-          >
-            VinhDz
-          </h2>
-
           <h5 className={styles.uniText}>Hello universe</h5>
           <span>V2 is comming soon...</span>
           <img

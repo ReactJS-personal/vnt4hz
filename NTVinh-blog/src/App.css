@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive');
 
 :root {
-  --main-color: #1093f3;
+  /* --main-color: #1093f3; */
+  --main-color: rgb(128, 219, 255)
 }
 
 body {

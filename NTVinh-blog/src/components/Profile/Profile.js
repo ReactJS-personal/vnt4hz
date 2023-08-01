@@ -5,17 +5,20 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import React, { useEffect, useState } from "react";
-import { FaFacebookMessenger, FaRegHeart } from "react-icons/fa";
-import { GoVerified } from "react-icons/go";
+import { FaFacebookMessenger } from "react-icons/fa";
+import { GoVerified, GoVersions } from "react-icons/go";
+import { Drawer } from "vaul";
+import colors from "../../themes/components/colors";
 import DataPft from "../../utils/DataPft";
+import HighlightText from "../../utils/HighlightText";
+import Linkcontact from "../Linkcontact/Linkcontact";
+import TimeL, { CustomTimeL } from "../TimeLine/TimeL";
+import UniverseStar from "../Universe/UniverseStar";
 import BtnLike from "../hooks/BtnLike/BtnLike";
 import BtnProfile from "../hooks/BtnProfile/BtnProfile";
-import Linkcontact from "../Linkcontact/Linkcontact";
 import { ProfileSkeleton } from "../loadingSkeleton/ProfileSkeleton";
-import TimeL, { CustomTimeL } from "../TimeLine/TimeL";
 import "./Profile.css";
 import ProfileAvatar from "./ProfileAvatar";
-import styles from "./styles.module.css";
 
 const CstItemTimeL = ({ title, id, link }) => (
   <TimelineItem>
@@ -112,15 +115,42 @@ function Profile({ theme }) {
         </div>
       </div>
 
-      <Grid container item xs={12} className={styles.your_heath}>
+      <Grid container item xs={12} className="your_heath">
         <Grid
           style={{ display: "flex" }}
           alignItems="center"
           direction="row"
-          className={styles.wrapHeathType}
+          className="wrapHeathType"
         >
-          <FaRegHeart />
-          <Typography>type your domain</Typography>
+          <Drawer.Root>
+            <Drawer.Trigger asChild>
+              <button className="btnV2">
+                <HighlightText
+                  stopOne={`${colors.pink30}`}
+                  stopTwo={`${colors.teal40}`}
+                >
+                  <GoVersions style={{ marginRight: "10px" }} />
+                  Version 2
+                </HighlightText>
+              </button>
+            </Drawer.Trigger>
+            <Drawer.Portal style={{ background: "red !important" }}>
+              <Drawer.Overlay className="overlayDrawVinhDz" />
+              <Drawer.Content className="contentDrawVinhDz">
+                <div className="ctnDrawVinhDz">
+                  <div className="wrapCtnD" />
+                  <div className="wt">
+                    <Drawer.Title>
+                      <div style={{ textAlign: "center" }}>
+                        <HighlightText>VinhDZ</HighlightText>
+                      </div>
+                    </Drawer.Title>
+                  </div>
+                  <UniverseStar />
+                </div>
+              </Drawer.Content>
+            </Drawer.Portal>
+          </Drawer.Root>
         </Grid>
       </Grid>
     </>

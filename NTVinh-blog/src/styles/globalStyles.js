@@ -13,6 +13,14 @@ export const GlobalStyles = createGlobalStyle`
      //    box-shadow: ${({ theme }) => theme.resetBoxShadow}; 
     }
 
+    .ctnDrawVinhDz {
+     background-color: ${({ theme }) => theme.black};
+    }
+    
+    .contentDrawVinhDz{
+     border-top: ${({ theme }) => theme.borderCardProject}
+    }
+
     .cardProject {
      border: ${({ theme }) => theme.borderCardProject}
     }
@@ -223,6 +231,7 @@ export const GlobalStyles = createGlobalStyle`
      transition: all .2s linear !important; 
    }
 
+
 `;
 
 export const lightTheme = {
@@ -231,6 +240,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  black: "black",
   zero: "0px",
   hidden: "none",
   mainBg: "#242526 !important",
