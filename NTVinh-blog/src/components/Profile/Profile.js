@@ -126,7 +126,7 @@ function Profile({ theme }) {
             <Drawer.Trigger asChild>
               <button className="btnV2">
                 <HighlightText
-                  stopOne={`${colors.pink30}`}
+                  stopOne={`${colors.purple40}`}
                   stopTwo={`${colors.teal40}`}
                 >
                   <GoVersions style={{ marginRight: "10px" }} />
