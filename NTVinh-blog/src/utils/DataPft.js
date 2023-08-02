@@ -17,15 +17,15 @@ import nodejs from "../assets/images/nodejs.png";
 import p1 from "../assets/images/p1.png";
 import reacrrsm from "../assets/images/reacrrsm.png";
 import react from "../assets/images/react.png";
-import reactfresh from "../assets/images/reactfresh.png";
 import reactImg from "../assets/images/reactImg.png";
 import reactVflix from "../assets/images/reactVflix.png";
 import reactWork from "../assets/images/reactWork.png";
+import reactfresh from "../assets/images/reactfresh.png";
 import tracker from "../assets/images/tracker.png";
 import vinhstagram from "../assets/images/vinhstagram.png";
 // import cybersoft from "../assets/workexperience/cybersoft.jpg";
 import isb from "../assets/workexperience/isb.jpg";
-import ts from "../assets/workexperience/ts.jpg";
+import ts from "../assets/workexperience/ts.jpeg";
 // eslint-disable-next-line import/no-anonymous-default-export
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -64,7 +64,7 @@ export default {
     },
   },
   about:
-    "👏Hi: Welcome to my website, at here i will briefly describe myself and projects that I have done.\n\nI am NTVinh, can call me a FrontEnd developer, my daily work is listen music, play game, read book, social ,  drink coffee with friends,... but also that i spend much time every day for coding, to me it is like a little hobby every time i have free time. I often find solutions and small ideas and then develop them into the finished products so i also gradually improved my web development skills. My future goal is to become a Fullstack Developer, my favorite programming language is JAVASCRIPT because it is really magic. \n\nThank you for reading this.",
+    "👏Hi: Hi: Welcome to my website, at here i will briefly describe myself and projects that I have done.\n\nI am NTVinh, can call me a FrontEnd developer, my daily work is listen music, play game, read book, social , drink coffee with friends,... but also that i spend much time every day for coding, to me it is like a little hobby every time i have free time. I often find solutions and small ideas and then develop them into the finished products so i also gradually improved my web development skills. My future goal is to become a Fullstack Developer, my favorite programming language is JAVASCRIPT because it is really magic. \n\nThank you for reading this.",
   signature: "VinhdZ",
   projects: [
     {
@@ -142,7 +142,7 @@ export default {
     //   time: "May 2020 - Nov 2020 · 7 mos",
     // },
     {
-      title: "Thuocsi.vn",
+      title: "Buymed",
       time: "Present",
       avatar: ts,
       avatarFrameWork: <GiPositionMarker />,
@@ -347,12 +347,12 @@ export default {
   ],
   Story: [
     {
-      name: "NT Vinh Nguyễn",
+      name: "NT Vinh Nguyen",
       adminManager: "Admin",
       storyImgBody: code,
-      storyTopContent: "𝑪𝒐̂𝒏𝒈 𝒗𝒊𝒆̣̂𝒄 𝒉𝒂̆̀𝒏𝒈 𝒏𝒈𝒂̀𝒚 𝒄𝒖̉𝒂 𝒅𝒆𝒗 😂😂",
+      storyTopContent: "Everyday tasks are also equal 😂😂",
       funContent:
-        "90% của việc code là fix bugs, 10% còn lại là để viết thêm bugs =]]",
+        "90% of coding is fixing bugs, the remaining 10% is creating more bugs.",
     },
   ],
 };

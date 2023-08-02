@@ -1,13 +1,17 @@
-.blog{
-    
+.blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     border-radius: 5px;
     height: 100vh;
     transition: all .2s ease-in;
-    opacity: 0.9; 
-    
+    opacity: 0.9;
+    flex-direction: column;
+    position: relative;
 }
-.btnbLog{
+
+.btnbLog {
     margin: 0 auto !important;
     /* position: relative !important; */
     /* transform: translate(50%, -50%); */
@@ -21,6 +25,7 @@
     text-transform: unset !important;
     font-weight: 550 !important;
     z-index: 999 !important;
+    border-radius: 30px !important;
 }
 
 .btnbLogMusic {
@@ -28,7 +33,7 @@
     background-color: unset !important;
 }
 
-.tltBlog{
+.tltBlog {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +50,7 @@
     transition: all .2s ease-in-out;
 }
 
-.ArrowIcon{
+.ArrowIcon {
     font-size: 20px;
     display: flex !important;
     justify-content: center;
@@ -53,7 +58,7 @@
     margin-left: 5px;
 }
 
-.iCon{
+.iCon {
     font-size: 35px !important;
     color: rgb(51, 50, 50) !important;
     background-color: unset !important;
@@ -62,96 +67,137 @@
 
 /* // reponsive */
 
-@media (max-width: 520px ){
-    .ArrowIcon{
-     
-       font-size: 16px;
+@media (max-width: 520px) {
+    .ArrowIcon {
+
+        font-size: 16px;
         margin-left: 5px;
     }
-    .btnbLog{
+
+    .btnbLog {
         font-size: 12px !important;
         width: 35%;
     }
-    .iCon{
+
+    .iCon {
         font-size: 35px !important;
     }
 }
-@media (max-width:410px){
-     .ArrowIcon{
+
+@media (max-width:410px) {
+    .ArrowIcon {
         font-weight: 550;
         font-size: 16px;
-         margin-left: 5px;
-     }
-    .btnbLog{
+        margin-left: 5px;
+    }
+
+    .btnbLog {
         width: 35%;
         font-size: 11px !important;
         font-weight: 550 !important;
     }
-     .iCon{
+
+    .iCon {
         font-size: 35px !important;
     }
 }
 
-@media (max-width:395px){
-    .ArrowIcon{
-       font-weight: 550;
-       font-size: 16px;
+@media (max-width:395px) {
+    .ArrowIcon {
+        font-weight: 550;
+        font-size: 16px;
         margin-left: 5px;
     }
-   .btnbLog{
-       width: 30%;
-       font-size: 14px !important;
-       font-weight: 550 !important;
-   }
-   .iCon{
-    font-size: 35px !important;
+
+    .btnbLog {
+        width: 30%;
+        font-size: 14px !important;
+        font-weight: 550 !important;
+    }
+
+    .iCon {
+        font-size: 35px !important;
     }
 }
 
-@media (max-width:375px){
-    .ArrowIcon{
-       font-weight: 550;
-       font-size: 16px;
+@media (max-width:375px) {
+    .ArrowIcon {
+        font-weight: 550;
+        font-size: 16px;
         margin-left: 5px;
     }
-   .btnbLog{
-       width: 40%;
-       font-size: 14px !important;
-       font-weight: 550 !important;
-   }
-   .iCon{
-    font-size: 35px !important;
+
+    .btnbLog {
+        width: 40%;
+        font-size: 14px !important;
+        font-weight: 550 !important;
     }
-}
-@media (max-width:345px){
-    .ArrowIcon{
-       font-weight: 550;
-       font-size: 16px;
-        margin-left: 5px;
-    }
-   .btnbLog{
-       width: 50%;
-       font-size: 14px !important;
-       font-weight: 550 !important;
-   }
-   .iCon{
-    font-size: 35px !important;
+
+    .iCon {
+        font-size: 35px !important;
     }
 }
 
-@media (max-width:320px){
+@media (max-width:345px) {
+    .ArrowIcon {
+        font-weight: 550;
+        font-size: 16px;
+        margin-left: 5px;
+    }
 
-    .ArrowIcon{
+    .btnbLog {
+        width: 50%;
+        font-size: 14px !important;
+        font-weight: 550 !important;
+    }
+
+    .iCon {
+        font-size: 35px !important;
+    }
+}
+
+@media (max-width:320px) {
+
+    .ArrowIcon {
         font-weight: 550;
         font-size: 18px;
         margin-left: 5px;
-     }
-    .btnbLog{
+    }
+
+    .btnbLog {
         width: 45%;
         font-size: 14px !important;
         font-weight: 550 !important;
     }
-    .iCon{
+
+    .iCon {
         font-size: 35px !important;
     }
+}
+
+.blogPlayWrapp {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10%;
+    flex-direction: column;
+}
+
+.goTo {
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    font-size: 20px;
+    top: 10px;
+    border: 1px dashed var(--main-color);
+    padding: 8px 10px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.goTo svg {
+    color: var(--main-color);
+    margin-left: 10px;
 }

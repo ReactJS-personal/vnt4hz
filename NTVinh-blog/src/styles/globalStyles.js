@@ -246,7 +246,7 @@ export const darkTheme = {
   mainBg: "#242526 !important",
   body: "#060b10 !important",
   text: "#fff !important",
-  avatar: "#2e89ff !important",
+  avatar: "var(--main-color) !important",
   bodycolorFB: "#12181f !important",
   colortextFB: " rgb(199, 194, 194)",
   colorName: "#e4e6eb",

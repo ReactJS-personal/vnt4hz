@@ -23,6 +23,7 @@ import likeStories from "../../assets/sounds/likeStories.wav";
 import storiesOpen from "../../assets/sounds/storiesOpen.mp3";
 import { useLocalStorage } from "../../components/hooks/useLocalStorage";
 import DataPft from "../../utils/DataPft";
+import SVGCircle from "../SVGCircle";
 import "./ProfileAvatar.css";
 import Progress from "./Progress";
 
@@ -81,7 +82,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-function ProfileAvatar() {
+function ProfileAvatar({ theme = "dark" }) {
   const [open, setOpen] = React.useState(false);
   const [storyClick, setStoryClick] = useState(false);
   const [playUp, setPlayUp] = useState(0.75);
@@ -136,16 +137,29 @@ function ProfileAvatar() {
         variant="dot"
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
-        <Avatar
-          onClick={wrapHandleAvatarClick}
-          className={storyClick === false ? "avatar" : "avatar_boder"}
-          src={v}
-          alt="avatar of NTV"
-        />
+        <div className="avatarWrapper">
+          <Avatar
+            onClick={wrapHandleAvatarClick}
+            className={storyClick === false ? "avatar" : "avatar_boder"}
+            src={v}
+            alt="avatar of NTV"
+            style={{ position: "absolute", zIndex: 9 }}
+          />
+          <div style={{ position: "absolute", zIndex: 2 }}>
+            <SVGCircle
+              width={400}
+              height={315}
+              sdStart={6}
+              sdEnd={6}
+              theme={theme}
+            />
+          </div>
+        </div>
       </StyledBadge>
 
       <Dialog
         className="Diablog-ctn"
+        ß
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}

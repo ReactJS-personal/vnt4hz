@@ -56,7 +56,7 @@ function Profile({ theme }) {
       <div className="p-f ctn-sd container_shadow ">
         <div className="p-f_Image">
           {/* <img src={v} alt="avatar of NTV"  className="avatar"/> */}
-          <ProfileAvatar />
+          <ProfileAvatar theme={theme} />
         </div>
         <div className="p-f_name">
           <Box className="name">

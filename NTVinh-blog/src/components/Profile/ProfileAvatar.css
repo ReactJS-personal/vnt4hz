@@ -268,3 +268,10 @@
     margin-left: -18px;
   }
 }
+
+.avatarWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

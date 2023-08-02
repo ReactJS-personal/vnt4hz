@@ -35,7 +35,7 @@ function App() {
     setIsExcute(isExcute);
   };
   useKey("ctrlv", () => setIsExcute(false));
-  console.log("sd", window.location.pathname === "/blog");
+
   // check mobile
   const { isMobile } = useMobileDetect();
   const [mobile, setMobile] = useState(isMobile);
@@ -94,7 +94,7 @@ function App() {
                           <PortFLO />
                         </Route>
                         <Route path="/blog">
-                          <Blog />
+                          <Blog theme={theme} />
                         </Route>
                         <Route path="/contact">
                           <Contact />
