@@ -129,6 +129,9 @@
   padding: 16px;
   margin-top: 10px !important;
   transition: all .2s ease-in-out;
+  background-color: transparent !important;
+  margin-right: 8px;
+  min-height: 140px;
 }
 
 .paper {

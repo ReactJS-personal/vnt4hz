@@ -10,6 +10,7 @@ import {
   DialogTitle,
   Grid,
   Grow,
+  Paper,
   Tab,
   Tabs,
   Typography,
@@ -23,8 +24,8 @@ import { GoPrimitiveDot } from "react-icons/go";
 import { VscRepo } from "react-icons/vsc";
 import { v4 as uuidv4 } from "uuid";
 import VinhdzLoading from "../../components/hooks/VLoading";
-import { URL_API_PINNED_PROJECT } from "../../utils/api";
 import DataPfl from "../../utils/DataPft";
+import { URL_API_PINNED_PROJECT } from "../../utils/api";
 
 //css
 import "./PortFLO.css";
@@ -93,67 +94,75 @@ function PortFLO() {
         ) : (
           <Grid item container style={{ position: "relative", zIndex: 99 }}>
             {data?.map((project) => (
-              <Grid item xs={12} lg={6} className="cardProject" key={uuidv4()}>
-                <Grid
-                  item
-                  direction="row"
-                  className="wrapCardTitle"
-                  alignItems="center"
-                  justify="space-between"
-                >
+              <Grid
+                item
+                xs={12}
+                lg={6}
+                // className="cardProject"
+                key={uuidv4()}
+              >
+                <Paper className="cardProject">
                   <Grid
-                    style={{ display: "flex" }}
                     item
+                    direction="row"
+                    className="wrapCardTitle"
                     alignItems="center"
-                    className="cardTitle"
+                    justify="space-between"
                   >
-                    <VscRepo
-                      style={{ color: "  #8b949e ", fontSize: "18px" }}
-                    />
-                    <a
-                      className="nameProject"
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >{`${project.owner}/${project.repo}`}</a>
-                    <Box className="public">Public</Box>
-                  </Grid>
-                  <BiGridVertical
-                    style={{
-                      color: "#8b949e",
-                      cursor: "pointer",
-                    }}
-                  />
-                </Grid>
-
-                <Grid style={{ marginTop: "6px" }}>
-                  <Box className="content">{project.description}</Box>
-                  <Grid
-                    container
-                    item
-                    alignItems="center"
-                    className="vdz-projectInfo"
-                  >
-                    <Grid item alignItems="center" className="lang">
-                      <GoPrimitiveDot
-                        style={{ color: project.languageColor || "#8b949e" }}
+                    <Grid
+                      style={{ display: "flex" }}
+                      item
+                      alignItems="center"
+                      className="cardTitle"
+                    >
+                      <VscRepo
+                        style={{ color: "  #8b949e ", fontSize: "18px" }}
                       />
-                      <Typography>{project.language}</Typography>
+                      <a
+                        className="nameProject"
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >{`${project.owner}/${project.repo}`}</a>
+                      <Box className="public">Public</Box>
                     </Grid>
-                    <Grid item alignItems="center" className="star">
-                      <BiStar />
-                      <Typography>{project.stars}</Typography>
-                    </Grid>
-                    <Grid item alignItems="center" className="fork">
-                      {project.forks ? (
-                        <>
-                          <BiGitRepoForked />
-                          <Typography>{project.forks}</Typography>{" "}
-                        </>
-                      ) : null}
+                    <BiGridVertical
+                      style={{
+                        color: "#8b949e",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </Grid>
+
+                  <Grid style={{ marginTop: "6px" }}>
+                    <Box className="content">{project.description}</Box>
+                    <Grid
+                      container
+                      item
+                      alignItems="center"
+                      className="vdz-projectInfo"
+                    >
+                      <Grid item alignItems="center" className="lang">
+                        <GoPrimitiveDot
+                          style={{ color: project.languageColor || "#8b949e" }}
+                        />
+                        <Typography>{project.language}</Typography>
+                      </Grid>
+                      <Grid item alignItems="center" className="star">
+                        <BiStar />
+                        <Typography>{project.stars}</Typography>
+                      </Grid>
+                      <Grid item alignItems="center" className="fork">
+                        {project.forks ? (
+                          <>
+                            <BiGitRepoForked />
+                            <Typography>{project.forks}</Typography>{" "}
+                          </>
+                        ) : null}
+                      </Grid>
                     </Grid>
                   </Grid>
-                </Grid>
+                </Paper>
               </Grid>
             ))}
           </Grid>

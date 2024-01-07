@@ -54,7 +54,7 @@ function Blog({ theme }) {
         <div className="goTo">
           <HighlightText stopOne={colors.teal30} stopTwo={colors.teal40}>
             <a
-              href="https://vinhdzblog.site/"
+              href="https://vinhdzblog.io.vn/"
               style={{
                 fontWeight: 600,
                 marginTop: 40,

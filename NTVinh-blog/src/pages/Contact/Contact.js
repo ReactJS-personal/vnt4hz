@@ -176,7 +176,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <Typography className="contact">
                       <span>blogwebsite:</span>{" "}
-                      <a href={DataPft.myWeb}>vinhblog.xyz</a>
+                      <a href={DataPft.myWeb}>vinhbdzblog.io.vn</a>
                     </Typography>
                   </Grid>
                   <Grid item>

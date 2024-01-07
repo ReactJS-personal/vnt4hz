@@ -16,7 +16,6 @@ import graph from "../assets/images/graph.jpg";
 import nodejs from "../assets/images/nodejs.png";
 import p1 from "../assets/images/p1.png";
 import reacrrsm from "../assets/images/reacrrsm.png";
-import react from "../assets/images/react.png";
 import reactImg from "../assets/images/reactImg.png";
 import reactVflix from "../assets/images/reactVflix.png";
 import reactWork from "../assets/images/reactWork.png";
@@ -24,8 +23,10 @@ import reactfresh from "../assets/images/reactfresh.png";
 import tracker from "../assets/images/tracker.png";
 import vinhstagram from "../assets/images/vinhstagram.png";
 // import cybersoft from "../assets/workexperience/cybersoft.jpg";
+import freelancer from "../assets/workexperience/freelancer.jpeg";
 import isb from "../assets/workexperience/isb.jpg";
 import ts from "../assets/workexperience/ts.jpeg";
+import vnm from "../assets/workexperience/vnm.jpeg";
 // eslint-disable-next-line import/no-anonymous-default-export
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -127,13 +128,13 @@ export default {
     {
       title: "ISB Vietnam Co,. Limited",
       avatar: isb,
-      time: "May 2019 - Jun 2019 · 2 mos",
+      time: "Feb 2019 - Jun 2019 · 5 mos",
       desc: "Technical:  .net, c#, WPF,...",
     },
     {
       title: "Freelance developer",
-      avatar: react,
-      time: "Aug 2019 - Oct 2019 · 3 mos",
+      avatar: freelancer,
+      time: "Jul 2020 - Jun 2021 · 1 yr",
       desc: "Technical:  javascript, react, MUI, tailwind, styled-component,...",
     },
     // {
@@ -143,10 +144,15 @@ export default {
     // },
     {
       title: "Buymed",
-      time: "Present",
+      time: "May 2021 - Apr 2023 · 2 yrs",
       avatar: ts,
-      avatarFrameWork: <GiPositionMarker />,
       desc: "Technical:  nextJS, react, MUI, api, zustand, e2e testing. \n\n Flow: Agile scrum, jira management tool,...",
+    },
+    {
+      title: "Vinamilk",
+      avatar: vnm,
+      time: "Aug 2023 - Present · 6 mos",
+      avatarFrameWork: <GiPositionMarker />,
     },
   ],
   ProfileIcon: [
